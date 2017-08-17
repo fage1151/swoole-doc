@@ -1,0 +1,15 @@
+{
+    "plugins": ["atoc","flowchart"],
+    "pluginsConfig": 
+    {
+        "atoc": 
+        {
+            "addClass": true,
+            "className": "atoc"
+        },
+        "flowchart":
+        {
+        	"line-color": "black"
+        }
+    }
+}
