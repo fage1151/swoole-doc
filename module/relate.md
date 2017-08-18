@@ -24,7 +24,16 @@
 * [EPServer](https://github.com/ewenlaz/epserver) EPServer 高性能TCP服务器框架，底层基于swoole扩展
 * [php-webserver](https://github.com/matyhtf/php-webserver) 基于swoole+http_parser2个扩展开发的高性能PHP web服务器。压测性能超过php-fpm的2倍
 * [think-swoole](https://github.com/top-think/think-swoole) ThinkPHP 5.0 Swoole 扩展
-* [queueSwoole](https://github.com/kcloze/queueSwoole) 基于swoole的微型框架，适合于高并发场景下的抢购／秒杀业务场景                 
+* [queueSwoole](https://github.com/kcloze/queueSwoole) 基于swoole的微型框架，适合于高并发场景下的抢购／秒杀业务场景  
+* [Phwoolcon](https://github.com/phwoolcon/phwoolcon) Phalcon结合Swoole的高性能框架
+* [swoft](https://github.com/stelin/swoft) swoft是基于swoole协程2.x的高性能PHP微服务框架，内置http服务器。框架全协程实现，性能优于传统的php-fpm模式。
+* [Group](https://github.com/fucongcong/Group) 基于swoole实现了定时任务功能，分布式任务队列，命令行控制台，数据库脚本自动化，单元测试, rpc服务，多进程服务 
+* [swoole-laravel-framework](https://github.com/chongyi/swoole-laravel-framework) 构建于 swoole 之上的 laravel 框架
+* [yii2-swoole](https://github.com/lscgzwd/yii2-swoole) yii2 run with swoole
+* [lumoon](https://github.com/silentred/lumoon) 结合 Lumen 和 Swoole
+* [swala](https://github.com/ChieveiT/swala) Swoole & Laravel
+* [slim-swoole](https://github.com/kcloze/slim-swoole) slim结合swoole
+* [SwooleDistributedWeb](https://github.com/jianghua/SwooleDistributedWeb) swoole 分布式全栈框架 web开发增强版，基于SwooleDistributed]
 ## 工具
 * [swoole-crontab](https://github.com/osgochina/swoole-crontab) 基于swoole的定时器程序，支持秒级处理. 异步多进程处理。完全兼容crontab语法，且支持秒的配置  
 * [redis-async](https://github.com/swoole/redis-async) 基于swoole开发的异步Redis+连接池，性能非常强劲。使用redis-async开发的Web应用，QPS可以高达3.5万QPS，超过php-fpm+php-redis扩展性能的10倍。  
@@ -35,7 +44,7 @@
 * [swoole-server-manager](https://github.com/df007df/swoole-server-manager) swoole-server-manager 常驻服务管理框架  
 * [statistics](https://github.com/smalleyes/statistics) 一个运用php与swoole实现的统计监控系统
 * [Sworm](https://github.com/heikezy/Sworm) 基于Swoole的异步MySQL数据库ORM框架
-       
+* [real-time-pad](https://github.com/zhaohehe/real-time-pad)  A really-real time collaborative word processor     
 ## 分布式
 * [SwooleDistributed](https://github.com/tmtbe/SwooleDistributed)  swoole 分布式全栈框架框架  
 * [swoole-task](https://github.com/luxixing/swoole-task) 是基于PHP swoole扩展开发的一个异步多进程任务处理框架，服务端和客户端通过http协议进行交互。它适用于任务需要花费较长时间处理，而客户端不必关注任务执行结果的场景.比如数据清洗统计类的工作，报表生成类任务  
@@ -43,5 +52,6 @@
 * [DFS](https://github.com/qieangel2013/dfs) DFS 分布式文件服务器
 * [DoraRPC](https://github.com/xcl3721/Dora-RPC) Dora RPC 是一款基础于Swoole定长包头通讯协议的最精简的RPC, 用于复杂项目前后端分离，分离后项目都通过API工作可更好的跟踪、升级、维护及管理。
 * [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) swoole简单实现jsonRPC
-
-
+* [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole
+* [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) 运用swoole简单实现jsonRPC
+                   
