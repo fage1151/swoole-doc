@@ -23,6 +23,8 @@
 * [PtWebserver](https://git.oschina.net/pantian/PtWebserver) PtWebserver 基于php swoole 扩展的高性能web 服务器。应用对象常驻内存，不用重复创建对象，提高响应时间与性能
 * [EPServer](https://github.com/ewenlaz/epserver) EPServer 高性能TCP服务器框架，底层基于swoole扩展
 * [php-webserver](https://github.com/matyhtf/php-webserver) 基于swoole+http_parser2个扩展开发的高性能PHP web服务器。压测性能超过php-fpm的2倍
+* [think-swoole](https://github.com/top-think/think-swoole)ThinkPHP 5.0 Swoole 扩展
+                  
 ## 工具
 * [swoole-crontab](https://github.com/osgochina/swoole-crontab) 基于swoole的定时器程序，支持秒级处理. 异步多进程处理。完全兼容crontab语法，且支持秒的配置  
 * [redis-async](https://github.com/swoole/redis-async) 基于swoole开发的异步Redis+连接池，性能非常强劲。使用redis-async开发的Web应用，QPS可以高达3.5万QPS，超过php-fpm+php-redis扩展性能的10倍。  
