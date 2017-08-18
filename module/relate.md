@@ -52,6 +52,4 @@
 * [DFS](https://github.com/qieangel2013/dfs) DFS 分布式文件服务器
 * [DoraRPC](https://github.com/xcl3721/Dora-RPC) Dora RPC 是一款基础于Swoole定长包头通讯协议的最精简的RPC, 用于复杂项目前后端分离，分离后项目都通过API工作可更好的跟踪、升级、维护及管理。
 * [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) swoole简单实现jsonRPC
-* [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole
-* [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) 运用swoole简单实现jsonRPC
-                   
+* [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole                   
