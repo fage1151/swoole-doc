@@ -33,7 +33,8 @@
 * [lumoon](https://github.com/silentred/lumoon) 结合 Lumen 和 Swoole
 * [swala](https://github.com/ChieveiT/swala) Swoole & Laravel
 * [slim-swoole](https://github.com/kcloze/slim-swoole) slim结合swoole
-* [SwooleDistributedWeb](https://github.com/jianghua/SwooleDistributedWeb) swoole 分布式全栈框架 web开发增强版，基于SwooleDistributed]
+* [SwooleDistributedWeb](https://github.com/jianghua/SwooleDistributedWeb) swoole 分布式全栈框架 web开发增强版，基于SwooleDistributed
+* [CatApi](https://github.com/CatsSystem/CatApi)  全异步Swoole Http API开发框架，内置Promise，异步MySQL连接池，内存缓存管理，异步Task方案等
 ## 工具
 * [swoole-crontab](https://github.com/osgochina/swoole-crontab) 基于swoole的定时器程序，支持秒级处理. 异步多进程处理。完全兼容crontab语法，且支持秒的配置  
 * [redis-async](https://github.com/swoole/redis-async) 基于swoole开发的异步Redis+连接池，性能非常强劲。使用redis-async开发的Web应用，QPS可以高达3.5万QPS，超过php-fpm+php-redis扩展性能的10倍。  
@@ -52,4 +53,5 @@
 * [DFS](https://github.com/qieangel2013/dfs) DFS 分布式文件服务器
 * [DoraRPC](https://github.com/xcl3721/Dora-RPC) Dora RPC 是一款基础于Swoole定长包头通讯协议的最精简的RPC, 用于复杂项目前后端分离，分离后项目都通过API工作可更好的跟踪、升级、维护及管理。
 * [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) swoole简单实现jsonRPC
-* [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole                   
+* [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole   
+* [syar](https://github.com/stcer/syar) swoole实现的yar服务
