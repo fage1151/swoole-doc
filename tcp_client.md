@@ -21,6 +21,7 @@ echo $client->recv();
 $client->close();
 ```
 swoole_client支持长连接形式的同步客户端，方便在php-fpm环境中使用
+
 ```php
 $cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 ```
