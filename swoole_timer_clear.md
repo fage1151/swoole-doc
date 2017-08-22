@@ -11,6 +11,7 @@ bool swoole_timer_clear(int $timer_id)
 ~~~
 <?php
 $timerid = swoole_timer_tick(1000,function()use($timerid){
+		echo time()."\n";
 		swoole_timer_clear($timerid);
 });
 ~~~
