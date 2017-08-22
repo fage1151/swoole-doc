@@ -1,0 +1,3 @@
+## EventLoop
+
+除了异步Server和Client库之外，Swoole扩展还提供了直接操作底层epoll/kqueue事件循环的接口。可将其他扩展创建的socket，PHP代码中stream/socket扩展创建的socket等加入到Swoole的EventLoop中。类似于libevent扩展，但swoole_event没有依赖。
