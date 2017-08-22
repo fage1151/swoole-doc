@@ -1,4 +1,5 @@
 ## mysql client
+异步mysql客户端
 ```php
 global $mysql;
 $mysql = new Mysql;
