@@ -7,7 +7,9 @@ swoole_client提供了tcp/udp socket的客户端的封装代码，使用时仅�
 * swoole_client支持UDP connect，解决了UDP串包问题
 * swoole_client是纯C的代码，专门处理socket，stream函数非常复杂。swoole_client性能更好
 除了普通的同步阻塞+select的使用方法外，swoole_client还支持异步非阻塞回调。
+
 ## 同步阻塞客户端
+
 ```php
 $client = new swoole_client(SWOOLE_SOCK_TCP);
 if (!$client->connect('127.0.0.1', 9501, -1))
