@@ -4,7 +4,7 @@
 [TOC]
 
 ## **swoole_server::__construct**
-**功能描述**：创建一个swoole_server资源对象<br>
+**功能描述**：创建一个swoole_server资源对象
 **函数原型**：
 ```php
 // 类成员函数
