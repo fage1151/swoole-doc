@@ -2,7 +2,7 @@
 执行一个外部程序，此函数是exec系统调用的封装。
 
 * $execfile指定可执行文件的绝对路径，如 "/usr/bin/python"
-* $args是一个数组，是exec的参数列表，如 array('test.py', 123)，相当与python test.py 123
+* $args是一个数组，是exec的参数列表，如 array("test.py", 123)，相当与python test.py 123
 
 执行成功后，当前进程的代码段将会被新程序替换。子进程蜕变成另外一套程序。父进程与当前进程仍然是父子进程关系。
 
