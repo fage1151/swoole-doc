@@ -7,4 +7,5 @@ swoole_timer与PHP本身的pcntl_alarm是不同的。pcntl_alarm是基于时钟�
 * 不支持同时设定多个定时器程序
 * pcntl_alarm依赖declare(ticks = 1)性能很差
 * 无法用于异步IO，只支持同步方式
+
 swoole_timer是基于timerfd+epoll实现的异步毫秒定时器，可完美的运行在EventLoop中，与swoole_client/swoole_event等模块可以无缝结合。
