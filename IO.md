@@ -22,3 +22,16 @@ Swoole支持2种类型的异步文件读写IO，可以使用swoole_async_set来�
 
 > 缺点：
 > 并发较差，不支持同时读写大量文件，最大并发受限与AIO的线程数量
+
+
+## swoole_async_set
+此函数可以设置异步IO相关的选项。
+
+* swoole_async_set(array $setting);
+* thread_num 设置异步文件IO线程的数量
+* aio_mode 设置异步文件IO的操作模式，目前支持SWOOLE_AIO_BASE（使用类似于Node.js的线程池同步阻塞模拟异步）、SWOOLE_AIO_LINUX（Linux Native AIO） 2种模式
+* enable_signalfd 开启和关闭signalfd特性的使用
+* socket_buffer_size 设置SOCKET内存缓存区尺寸
+* socket_dontwait 在内存缓存区已满的情况下禁止底层阻塞等待
+* log_file 设置日志文件路径
+* log_level 设置错误日志等级
