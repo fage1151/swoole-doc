@@ -59,12 +59,20 @@ $client->connect('127.0.0.1', 9501);
 ~~~
 int swoole_client_select(array &$read, array &$write, array &$error, float $timeout);
 ~~~
-别名swoole_select
-swoole_client_select接受4个参数，$read, $write, $error 分别是可读/可写/错误的文件描述符。
-这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。 1.8.6或更高版本可以支持swoole_process对象
-$timeout参数是select的超时时间，单位为秒，接受浮点数。
+
+别名swoole_select，swoole_client_select接受4个参数。
+
+* $read, $write, $error 分别是可读/可写/错误的文件描述符。这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。 1.8.6或更高版本可以支持swoole_process对象
+* $timeout参数是select的超时时间，单位为秒，接受浮点数。
+
+返回值
+
+* 调用成功后，会返回事件的数量，并修改$read/$write/$error数组。使用foreach遍历数组，然后执行$item->recv/$item->send来收发数据。或者调用$item->close()或unset($item)来关闭socket。
+
+* swoole_client_select返回0表示在规定的时间内，没有任何IO可用，select调用已超时。
 
 **此函数可以用于Apache/PHP-fpm环境**
+
 ### swoole_client用法
 ~~~
 $clients = array();
