@@ -1,5 +1,5 @@
 ## http client 
-异步http客户度
+异步http客户端
 ```php
 <?php
 class Http
