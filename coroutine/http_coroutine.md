@@ -35,3 +35,9 @@ $server->on('Request', function($request, $response) {
 });
 
 $server->start();
+**启用http**
+需要在编译swoole时增加--enable-coroutine来开启此功能。
+swoole_http_client不依赖任何第三方库
+支持Http-Chunk、Keep-Alive特性，暂不支持form-data格式
+Http协议版本为HTTP/1.1
+gzip压缩格式支持需要依赖zlib库
