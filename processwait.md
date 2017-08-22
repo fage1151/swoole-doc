@@ -7,7 +7,8 @@ array swoole_process::wait(bool $blocking = true);
 * $blocking 参数可以指定是否阻塞等待，默认为阻塞
 * 操作成功会返回返回一个数组包含子进程的PID、退出状态码、被哪种信号KILL
 * 失败返回false
-成功结果实例
+
+成功结果示例
 ~~~
 $result = array('code' => 0, 'pid' => 15001, 'signal' => 15);
 ~~~
