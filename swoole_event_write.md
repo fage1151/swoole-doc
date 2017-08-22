@@ -18,6 +18,7 @@ swoole_event_write($fp, $data);
 * swoole_event_write不能用于SSL/TLS等有隧道加密的stream/sockets资源
 * swoole_event_write调用之前，必须在将socket加入event_loop，否则会发生错误
 * $data 发送数据的长度不得超过Socket缓存区尺寸
+
 > 此函数在swoole-1.7.9以上版本可用
 
 SOCKET缓存区已满后，Swoole的底层逻辑
