@@ -59,12 +59,13 @@ $client->connect('127.0.0.1', 9501);
 ~~~
 int swoole_client_select(array &$read, array &$write, array &$error, float $timeout);
 ~~~
+别名swoole_select
 swoole_client_select接受4个参数，$read, $write, $error 分别是可读/可写/错误的文件描述符。
 这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。 1.8.6或更高版本可以支持swoole_process对象
 $timeout参数是select的超时时间，单位为秒，接受浮点数。
 
 **此函数可以用于Apache/PHP-fpm环境**
-
+### swoole_client用法
 ~~~
 $clients = array();
 
@@ -97,4 +98,22 @@ while (!empty($clients))
         }
     }
 }
+~~~
+### swoole_process用法
+~~~
+<?php
+$process = new swoole_process(function (swoole_process $worker)
+{
+    echo "Worker: start. PID=" . $worker->pid . "\n";
+    sleep(2);
+    $worker->write("hello master\n");
+    $worker->exit(0);
+}, false);
+
+$pid = $process->start();
+$r = array($process);
+$write = $error = array();
+$ret = swoole_select($r, $write, $error, 1.0);//swoole_select是swoole_client_select的别名
+var_dump($ret);
+var_dump($process->read());
 ~~~
