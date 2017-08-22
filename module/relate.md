@@ -17,7 +17,7 @@
 * [swPromise](https://github.com/coooold/swPromise) swPromise 基于swoole的PHP promise框架
 * [zys](https://github.com/qieangel2013/zys)基于Yaf和Swoole的i高性能Service框架
 * [Laravoole](https://github.com/garveen/laravoole) Laravel和Swoole结合的超高性能框架
-* [LaravelFly](https://github.com/scil/LaravelFly)  Laravel结合swoole
+* [LaravelFly](https://github.com/scil/LaravelFly)  Laravel结合swoolel
 * [stone](https://github.com/StoneGroup/stone) 基于swoole,能大幅提升基于Laravel的程序性能
 * [MyQEE-Server](https://github.com/myqee/server) MyQEE-Server 将swoole服务和功能对象抽象化，为每个 Worker、Task、多端口分配一个对象，带来全新的编程体验让代码清晰有条理，适合多端口以及Http、WebSocket、Tcp混合的应用服务器开发，支持创建大文件、断点、分片上传的Http服务器
 * [PtWebserver](https://git.oschina.net/pantian/PtWebserver) PtWebserver 基于php swoole 扩展的高性能web 服务器。应用对象常驻内存，不用重复创建对象，提高响应时间与性能
