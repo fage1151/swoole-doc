@@ -4,6 +4,7 @@ swoole提供了四种协程Client：
 * HTTP Client->\Swoole\Coroutine\HTTP\Client  
 * Redis Client->\Swoole\Coroutine\Redis
 * Mysql Client->\Swoole\Coroutine\MySQL
+
 在协程Server中需要使用协程版Client，可以实现全异步server
 
 同时swoole提供了协程工具集：\Swoole\Coroutine\Util，提供了获取当前协程id，反射调用等能力。
