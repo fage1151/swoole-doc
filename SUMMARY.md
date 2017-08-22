@@ -12,6 +12,7 @@
     * [http_client](module/http_client.md)
     * [mysql_client](module/mysql.md)
     * [redis_client](module/redis_client.md)
+    * [tcp_client](tcp_client.md)
 * [swoole_coroutine](module/coroutine.md)
     * [http_coroutine](coroutine/http_coroutine.md)
     * [mysql_coroutine](coroutine/mysql_coroutine.md)
