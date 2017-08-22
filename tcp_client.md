@@ -25,6 +25,8 @@ swoole_client支持长连接形式的同步客户端，方便在php-fpm环境中
 ```php
 $cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 ```
+**SWOOLE_KEEP只允许用于同步客户端**
+
 加入SWOOLE_KEEP标志后，创建的TCP连接在PHP请求结束或者调用$cli->close时并不会关闭。下一次执行connect调用时会复用上一次创建的连接。长连接保存的方式默认是以ServerHost:ServerPort为key的(连接相同的host:port将复用已经存在的连接)。可以在第3个参数内指定key。
 ```php
 swoole_client->__construct(int $sock_type, int $is_sync = SWOOLE_SOCK_SYNC, string $key);
