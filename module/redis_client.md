@@ -1,4 +1,5 @@
 ## redis client
+异步redis客户端
 ```php
 $client = new Redis;
 $client->connect('127.0.0.1', 6379, function (Redis $client, $result) {
