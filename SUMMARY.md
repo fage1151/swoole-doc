@@ -19,6 +19,7 @@
     * [redis_coroutine](coroutine/redis_coroutine.md)
     * [sleep_coroutine](coroutine/sleep.md)
     * [tcp_coroutine](tcp_coroutine.md)
+    * [http2_client](http2_client.md)
 * [swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
