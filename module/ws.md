@@ -1,4 +1,5 @@
 ## ws client
+异步websocket客户度
 ```php
 class Ws
 {
