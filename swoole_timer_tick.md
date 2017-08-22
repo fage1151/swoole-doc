@@ -4,6 +4,7 @@
 ~~~
 int swoole_timer_tick(int $ms, callable $callback, mixed $user_param);
 ~~~
+
 * $ms 指定时间，单位为毫秒
 * $callback_function 时间到期后所执行的函数，必须是可以调用的。
 * $user_param 用户参数, 该参数会被传递到$callback_function中. 如果有多个参数可以使用数组形式. 也可以使用匿名函数的use语法传递参数到回调函数中
