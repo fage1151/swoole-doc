@@ -5,7 +5,7 @@
 
 ## **swoole_server::__construct**
 **功能描述**：创建一个swoole_server资源对象<br>
-**函数原型**：<br>
+**函数原型**：
 ```php
 // 类成员函数
 public function swoole_server::__construct(string $host, int $port, int $mode = SWOOLE_PROCESS,
