@@ -36,3 +36,4 @@
 * [swoole相关开源项目](module/relate.md)
 * [异步文件系统IO](IO.md)
     * [swoole_async_readfile](readfile.md)
+        * [swoole_async_writefile](writefile.md)
