@@ -54,3 +54,47 @@ $client->on("close", function(swoole_client $cli){
 $client->connect('127.0.0.1', 9501);
 ```
 异步客户端只能使用在cli命令行环境 异步的swoole client的使用场景对于新手同学来说可能比较陌生，因为异步客户端是不可以应用在apache或fpm中的，而且仅能用于cli环境
+
+## 并行调用
+~~~
+int swoole_client_select(array &$read, array &$write, array &$error, float $timeout);
+~~~
+swoole_client_select接受4个参数，$read, $write, $error 分别是可读/可写/错误的文件描述符。
+这3个参数必须是数组变量的引用。数组的元素必须为swoole_client对象。 1.8.6或更高版本可以支持swoole_process对象
+$timeout参数是select的超时时间，单位为秒，接受浮点数。
+
+**此函数可以用于Apache/PHP-fpm环境**
+
+~~~
+$clients = array();
+
+for($i=0; $i< 20; $i++)
+{
+    $client = new swoole_client(SWOOLE_SOCK_TCP, SWOOLE_SOCK_SYNC); //同步阻塞
+    $ret = $client->connect('127.0.0.1', 9501, 0.5, 0);
+    if(!$ret)
+    {
+        echo "Connect Server fail.errCode=".$client->errCode;
+    }
+    else
+    {
+        $client->send("HELLO WORLD\n");
+        $clients[$client->sock] = $client;
+    }
+}
+
+while (!empty($clients))
+{
+    $write = $error = array();
+    $read = array_values($clients);
+    $n = swoole_client_select($read, $write, $error, 0.6);
+    if ($n > 0)
+    {
+        foreach ($read as $index => $c)
+        {
+            echo "Recv #{$c->sock}: " . $c->recv() . "\n";
+            unset($clients[$c->sock]);
+        }
+    }
+}
+~~~
