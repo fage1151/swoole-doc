@@ -48,3 +48,4 @@
     * [swoole_event_set](swoole_event_set.md)
     * [swoole_event_del](swoole_event_del.md)
     * [swoole_event_wait](swoole_event_wait.md)
+    * [swoole_event_defer](swoole_event_defer.md)
