@@ -42,3 +42,4 @@
 * [swoole_timer](swoole_timer.md)
     * [swoole_timer_tick](swoole_timer_tick.md)
     * [swoole_timer_after](swoole_timer_after.md)
+    * [swoole_timer_clear](swoole_timer_clear.md)
