@@ -78,7 +78,9 @@ $http->onResponse = function ($cli) {
 $http->request($data);
 ```
 ### 构造方法
+~~~
 function swoole_http_client->__construct(string $ip, int port, bool $ssl = false);
-$ip 目标服务器的IP地址，可使用swoole_async_dns_lookup查询域名对应的IP地址
-$port 目标服务器的端口，一般http为80，https为443
-$ssl 是否启用SSL/TLS隧道加密，如果目标服务器是https必须设置$ssl参数为true
+~~~
+* $ip 目标服务器的IP地址，可使用swoole_async_dns_lookup查询域名对应的IP地址
+* $port 目标服务器的端口，一般http为80，https为443
+* $ssl 是否启用SSL/TLS隧道加密，如果目标服务器是https必须设置$ssl参数为true
