@@ -130,12 +130,15 @@ var_dump($process->read());
 Swoole\Client和Swoole\Http\Client可以使用set方法设置一些选项，启用某些特性。
 
 结束符检测
+~~~
 $client->set(array(
     'open_eof_check' => true,
     'package_eof' => "\r\n\r\n",
     'package_max_length' => 1024 * 1024 * 2,
 ))
+~~~
 长度检测
+~~~
 $client->set(array(
     'open_length_check'     => 1,
     'package_length_type'   => 'N',
@@ -143,42 +146,57 @@ $client->set(array(
     'package_body_offset'   => 4,       //第几个字节开始计算长度
     'package_max_length'    => 2000000,  //协议最大长度
 ));
+~~~
 Socket缓存区尺寸
+~~~
 $client->set(array(
     'socket_buffer_size'     => 1024*1024*2, //2M缓存区
 ));
+~~~
 包括socket底层操作系统缓存区、应用层接收数据内存缓存区、应用层发送数据内存缓冲区
 关闭Nagle合并算法
+~~~
 $client->set(array(
     'open_tcp_nodelay'     =>  true,
 ));
+~~~
 SSL/TLS证书
+~~~
 $client->set(array(
     'ssl_cert_file'     =>  $your_ssl_cert_file_path,
     'ssl_key_file'     =>  $your_ssl_key_file_path,
 ));
+~~~
 swoole-1.7.21或更高版本可用
 绑定IP和端口
 机器有多个网卡的情况下，设置bind_address参数可以强制客户端Socket绑定某个网络地址。
 设置bind_port可以使客户端Socket使用固定的端口连接到外网服务器
+~~~
 $client->set(array(
     'bind_address'     =>  '192.168.1.100',
     'bind_port'     =>  36002,
 ));
+~~~
 swoole-1.8.5或更高版本可用
 Socks5代理设置
+~~~
 $client->set(array(
     'socks5_host'     =>  '192.168.1.100',
     'socks5_port'     =>  1080,
     'socks5_username' => 'username',
     'socks5_password' => 'password',
 ));
-socks5_username、``socks5_password`为可选参数
+~~~
+
+socks5_username、socks5_password为可选参数
 Http代理设置
+
+~~~
 $client->set(array(
     'http_proxy_host'     =>  '192.168.1.100',
     'http_proxy_port'     =>  1080,
 ));
+~~~
 使用说明
 目前支持open_length_check和open_eof_check2种自动协议处理功能，参考swoole_server中的配置选项
 启用了自动协议后，同步阻塞客户端recv方法将不接受长度参数，每次必然返回一个完整的数据包
