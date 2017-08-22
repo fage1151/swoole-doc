@@ -41,8 +41,6 @@
     * [swoole_timer_tick](swoole_timer_tick.md)
     * [swoole_timer_after](swoole_timer_after.md)
     * [swoole_timer_clear](swoole_timer_clear.md)
-* [swoole-worker手册](swoole-worker/swoole-worker.md)
-* [swoole相关开源项目](module/relate.md)
 * [swoole_event](swoole_event.md)
     * [swoole_event_add](swoole_event_add.md)
     * [swoole_event_set](swoole_event_set.md)
@@ -51,3 +49,6 @@
     * [swoole_event_defer](swoole_event_defer.md)
     * [swoole_event_write](swoole_event_write.md)
     * [swoole_event_exit](swoole_event_exit.md)
+* [swoole-worker手册](swoole-worker/swoole-worker.md)
+* [swoole相关开源项目](module/relate.md)
+
