@@ -35,3 +35,4 @@
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [异步文件系统IO](IO.md)
+    * [swoole_async_readfile](readfile.md)
