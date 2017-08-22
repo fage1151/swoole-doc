@@ -26,5 +26,7 @@
     * [process::name](process/name.md)
     * [process::signal](process/signal.md)
     * [process::setaffinity](processsetaffinity.md)
+    * [process::exit](processexit.md)
+    * [process::kill](processkill.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
