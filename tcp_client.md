@@ -168,6 +168,8 @@ $client->set(array(
 ));
 ~~~
 swoole-1.7.21或更高版本可用
+
+
 绑定IP和端口
 机器有多个网卡的情况下，设置bind_address参数可以强制客户端Socket绑定某个网络地址。
 设置bind_port可以使客户端Socket使用固定的端口连接到外网服务器
@@ -178,6 +180,8 @@ $client->set(array(
 ));
 ~~~
 swoole-1.8.5或更高版本可用
+
+
 Socks5代理设置
 ~~~
 $client->set(array(
