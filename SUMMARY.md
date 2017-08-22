@@ -38,3 +38,4 @@
     * [swoole_async_readfile](readfile.md)
     * [swoole_async_writefile](writefile2.md)
     * [swoole_async_read](read.md)
+    * [swoole_async_write](write.md)
