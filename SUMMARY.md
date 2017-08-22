@@ -37,3 +37,4 @@
 * [异步文件系统IO](IO.md)
     * [swoole_async_readfile](readfile.md)
     * [swoole_async_writefile](writefile2.md)
+    * [swoole_async_read](read.md)
