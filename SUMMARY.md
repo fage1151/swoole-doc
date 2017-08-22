@@ -31,5 +31,6 @@
     * [process::daemon](processdaemon.md)
     * [process->exec](process-exec.md)
     * [process::wait](processwait.md)
+    * [process::alarm](processalarm.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
