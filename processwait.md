@@ -13,9 +13,7 @@ $result = array('code' => 0, 'pid' => 15001, 'signal' => 15);
 ~~~
 
 > 子进程结束必须要执行wait进行回收，否则子进程会变成僵尸进程
-
 > $blocking 仅在1.7.10以上版本可用
-
 > 使用swoole_process作为监控父进程，创建管理子process时，父类必须注册信号SIGCHLD对退出的进程执行wait，否则子process一旦被kill会引起父process exit
 
 在异步信号回调中执行wait
