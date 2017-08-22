@@ -50,3 +50,4 @@
     * [swoole_event_wait](swoole_event_wait.md)
     * [swoole_event_defer](swoole_event_defer.md)
     * [swoole_event_write](swoole_event_write.md)
+    * [swoole_event_exit](swoole_event_exit.md)
