@@ -204,7 +204,7 @@ task_worker_num<br>
 ## package_length_type
 描述：指定包长字段的类型<br>
 说明：配合[open_length_check](#15open_length_check)使用，指定长度字段的类型，参数如下：<br>
->- 's' => int16_t      机器字节序
+- 's' => int16_t      机器字节序
 - 'S' => uint16_t      机器字节序
 - 'n' => uint16_t      大端字节序
 - ’N‘ => uint32_t      大端字节序
