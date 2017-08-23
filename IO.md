@@ -1,6 +1,10 @@
 ## 异步文件系统IO
 Swoole支持2种类型的异步文件读写IO，可以使用swoole_async_set来设置AIO模式:.
 
+
+[TOC]
+
+
 ### Linux原生异步IO (AIO模式：SWOOLE_AIO_LINUX)
 基于Linux Native AIO系统调用，是真正的异步IO，并非阻塞模拟。
 
