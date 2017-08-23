@@ -1,6 +1,8 @@
 ## swoole_timer_tick
 设置一个间隔时钟定时器，与after定时器不同的是tick定时器会持续触发，直到调用swoole_timer_clear清除。
 
+[TOC]
+
 ~~~
 int swoole_timer_tick(int $ms, callable $callback, mixed $user_param);
 ~~~
