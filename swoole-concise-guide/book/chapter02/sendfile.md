@@ -2,7 +2,7 @@
 发送文件到浏览器。
 
 ~~~
-function swoole_http_response->sendfile(string $filename, int $offset = 0, int $length = 0);
+function swoole_server->sendfile(string $filename, int $offset = 0, int $length = 0);
 ~~~
 * $filename 要发送的文件名称，文件不存在或没有访问权限sendfile会失败
 * 底层无法推断要发送文件的MIME格式因此需要应用代码指定Content-Type
@@ -13,6 +13,8 @@ function swoole_http_response->sendfile(string $filename, int $offset = 0, int $
 * $length 发送数据的尺寸，默认为整个文件的尺寸
 
 >$length、$offset参数在1.9.11或更高版本可用
+>如果是同步client，sendfile会一直阻塞直到整个文件发送完毕或者发生致命错误
+>如果是异步client，sendfile会异步发送，当发生致命错误时会回调onError
 
 使用示例
 ~~~
