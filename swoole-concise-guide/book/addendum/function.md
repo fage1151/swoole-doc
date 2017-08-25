@@ -3,7 +3,7 @@
 
 [TOC]
 
-##**swoole_server::__construct**
+## **swoole_server::__construct**
 **功能描述**：创建一个swoole_server资源对象<br>
 **函数原型**：<br>
 ```php
@@ -39,7 +39,7 @@ mode指定了swoole_server的运行模式，共有如下三种：<br>
 $serv = new swoole_server("127.0.0.1" , 8888 , SWOOLE_PROCESS , SWOOLE_SOCK_TCP);
 ```
 
-##**swoole_server::set**
+## **swoole_server::set**
 **功能描述**：设置swoole_server运行时的各项参数<br>
 **函数原型**：<br>
 ```php
@@ -72,7 +72,7 @@ $serv->set(
 );
 ```
 
-##**swoole_server::on**
+## **swoole_server::on**
 **功能描述**：绑定swoole_server的相关回调函数<br>
 **函数原型**：<br>
 ```php
@@ -100,7 +100,7 @@ $serv->on('connect', function ($serv, $fd){
 $serv->on('receive', array( $myclass, 'onReceive' ) ); // onReceive是myclass的成员函数
 ```
 
-##**swoole_server::addlistener**
+## **swoole_server::addlistener**
 **功能描述**：给swoole_server增加一个监听的地址和端口<br>
 **函数原型**：<br>
 ```php
@@ -144,7 +144,7 @@ $serv->addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
 swoole_server_addlisten($serv, "127.0.0.1", 9502, SWOOLE_SOCK_TCP);
 ```
 
-##**swoole_server::handler**
+## **swoole_server::handler**
 **功能描述**：设置Server的事件回调函数<br>
 **函数原型**：<br>
 ```php
@@ -176,7 +176,7 @@ $serv->handler('onStart', array($this, 'my_onStart'));
 $serv->handler('onStart', 'myClass::onStart');
 ```
 
-##**swoole_server::start**
+## **swoole_server::start**
 **功能描述**：启动server，开始监听所有TCP/UDP端口<br>
 **函数原型**：<br>
 ```php
@@ -201,7 +201,7 @@ public function swoole_server::start()
 $serv->start();
 ```
 
-##**swoole_server::reload**
+## **swoole_server::reload**
 **功能描述**：重启所有worker进程。<br>
 **函数原型**：<br>
 ```php
@@ -221,7 +221,7 @@ public function swoole_server::reload()
 $serv->reload();
 ```
 
-##**swoole_server::shutdown**
+## **swoole_server::shutdown**
 **功能描述**：关闭服务器。<br>
 **函数原型**：<br>
 ```php
@@ -238,7 +238,7 @@ public function swoole_server::shutdown()
 $serv->shutdown();
 ```
 
-##**swoole_server::addtimer**
+##  **swoole_server::addtimer**
 **功能描述**：设置一个固定间隔的定时器<br>
 **函数原型**：<br>
 ```php
@@ -268,7 +268,7 @@ $serv->addtimer(1000);              //1s
 swoole_server_addtimer($serv,20);   //20ms
 ```
 
-##**swoole_server::deltimer**
+## **swoole_server::deltimer**
 **功能描述**：删除指定的定时器。<br>
 **函数原型**：<br>
 ```php
@@ -291,7 +291,7 @@ public function swoole_server::deltimer(int $interval);
 $serv->deltimer(1000);
 ```
 
-##**swoole_server::after**
+## **swoole_server::after**
 **功能描述**：在指定的时间后执行函数<br>
 **函数原型**：<br>
 ```php
@@ -321,7 +321,7 @@ $serv->after(1000, function( $params ){
 } , "data" );
 ```
 
-##**swoole_server::close**
+## **swoole_server::close**
 **功能描述**：关闭客户端连接<br>
 **函数原型**：<br>
 ```php
@@ -344,7 +344,7 @@ public function swoole_server::close(int $fd, int $from_id = 0);
 $serv->close( $fd );
 ```
 
-##**swoole_server::send**
+## **swoole_server::send**
 **功能描述**：向客户端发送数据<br>
 **函数原型**：<br>
 ```php
@@ -376,7 +376,7 @@ public function swoole_server::send(int $fd, string $data, int $from_id = 0);
 $serv->send( $fd , "Hello World");
 ```
 
-##**swoole_server::sendfile**
+## **swoole_server::sendfile**
 **功能描述**：发送文件到TCP客户端连接<br>
 **函数原型**：<br>
 ```php
@@ -399,7 +399,7 @@ sendfile函数调用OS提供的sendfile系统调用，由操作系统直接读�
 $serv->sendfile($fd, __DIR__.'/test.jpg');
 ```
 
-##**swoole_server::connection_info**
+## **swoole_server::connection_info**
 **功能描述**：获取连接的信息<br>
 **函数原型**：<br>
 ```php
@@ -436,7 +436,7 @@ $fdinfo = $serv->connection_info($fd);
 $udp_client = $serv->connection_info($fd, $from_id);
 ```
 
-##**swoole_server::connection_list**
+## **swoole_server::connection_list**
 **功能描述**：遍历当前Server的全部客户端连接<br>
 **函数原型**：<br>
 ```php
@@ -475,7 +475,7 @@ while(true)
 }
 ```
 
-##**swoole_server::stats**
+## **swoole_server::stats**
 **功能描述**：获取当前Server的活动TCP连接数，启动时间，accpet/close的总次数等信息。<br>
 **函数原型**：<br>
 ```php
@@ -499,7 +499,7 @@ stats方法在1.7.5+后可用<br>
 $status = $serv->stats();
 ```
 
-##**swoole_server::task**
+## **swoole_server::task**
 **功能描述**：投递一个异步任务到task_worker池中<br>
 **函数原型**：<br>
 ```php
@@ -528,7 +528,7 @@ data可以为二进制数据，最大长度为**8K**(超过8K可以使用临时�
 $task_id = $serv->task("some data");
 ```
 
-##**swoole_server::taskwait**
+## **swoole_server::taskwait**
 **功能描述**：投递一个同步任务到task_worker池中<br>
 **函数原型**：<br>
 ```php
@@ -553,7 +553,7 @@ taskwait与task方法作用相同，用于投递一个异步的任务到task进�
 $task_id = $serv->taskwait("some data"， 30);
 ```
 
-##**swoole_server::finish**
+## **swoole_server::finish**
 **功能描述**：传递Task结果数据给worker进程<br>
 **函数原型**：<br>
 ```php
@@ -576,7 +576,7 @@ swoole_server::finish是可选的。如果Worker进程不关心任务执行的�
 $serv->finish("result data");
 ```
 
-##**swoole_server::heartbeat**
+## **swoole_server::heartbeat**
 **功能描述**：进行心跳检测<br>
 **函数原型**：<br>
 ```php
@@ -600,7 +600,7 @@ if_close_connection参数 在swoole-1.7.4以上版本可用<br>
 $serv->heartbeat();
 ```
 
-##**swoole_get_mysqli_sock**
+## **swoole_get_mysqli_sock**
 **功能描述**：获取mysqli的socket文件描述符<br>
 **函数原型**：<br>
 ```php
@@ -631,7 +631,7 @@ swoole_event_add(swoole_get_mysqli_sock($db), function($db_sock) {
 });
 ```
 
-##**swoole_set_process_name**
+## **swoole_set_process_name**
 **功能描述**：设置进程的名称<br>
 **函数原型**：<br>
 ```php
@@ -658,7 +658,7 @@ swoole_set_process_name存在兼容性问题，优先使用PHP内置的cli_set_p
 woole_set_process_name("swoole server");
 ```
 
-##**swoole_version**
+## **swoole_version**
 **功能描述**：获取swoole扩展的版本号<br>
 **函数原型**：<br>
 ```php
@@ -673,7 +673,7 @@ string swoole_version();
 echo swoole_version();
 ```
 
-##**swoole_strerror**
+## **swoole_strerror**
 **功能描述**：将标准的Unix Errno错误码转换成错误信息<br>
 **函数原型**：<br>
 ```php
@@ -693,7 +693,7 @@ string swoole_strerror(int $errno);
 echo swoole_strerror( $errno );
 ```
 
-##**swoole_errno**
+## **swoole_errno**
 **功能描述**：获取最近一次系统调用的错误码<br>
 **函数原型**：<br>
 ```php
@@ -709,7 +709,7 @@ int swoole_errno();
 echo swoole_strerror(swoole_errno());
 ```
 
-##**swoole_get_local_ip**
+## **swoole_get_local_ip**
 **功能描述**：此函数用于获取本机所有网络接口的IP地址<br>
 **函数原型**：<br>
 ```php
