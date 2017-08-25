@@ -1,3 +1,7 @@
+Swoole在2.0开始内置协程(Coroutine)的能力，提供了具备协程能力IO接口（统一在命名空间Swoole\Coroutine\*）
+
+>2.0.2或更高版本已支持PHP7
+
 swoole提供了四种协程Client：
 
 * TCP/UDP Client->\Swoole\Coroutine\Client  
