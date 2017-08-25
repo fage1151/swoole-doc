@@ -44,7 +44,6 @@
     * [附录*回调函数](book/addendum/callback.md)
     * [附录*属性列表](book/addendum/property.md)
     * [附录*函数列表](book/addendum/function.md)
-
 * [swoole_server](module/server.md)
     * [server::set](server/set.md)
     * [server函数](server/function.md)
