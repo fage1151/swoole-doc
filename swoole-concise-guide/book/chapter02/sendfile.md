@@ -10,7 +10,8 @@ function swoole_http_response->sendfile(string $filename, int $offset = 0, int $
 * 调用sendfile后底层会自动执行end
 * sendfile不支持gzip压缩
 * $offset 上传文件的偏移量，可以指定从文件的中间部分开始传输数据。此特性可用于支持断点续传。
-*$length 发送数据的尺寸，默认为整个文件的尺寸
+* $length 发送数据的尺寸，默认为整个文件的尺寸
+
 >$length、$offset参数在1.9.11或更高版本可用
 
 使用示例
