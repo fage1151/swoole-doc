@@ -23,9 +23,29 @@ ab -c 200 -n 200000 -k http://127.0.0.1:9501
 * ./configure --enable-openssl --enable-http2
 * 设置http服务器的open_http2_protocol为true
 
+~~~
 $serv = new swoole_http_server("127.0.0.1", 9501, SWOOLE_PROCESS, SWOOLE_SOCK_TCP | SWOOLE_SSL);
 $serv->set([
     'ssl_cert_file' => $ssl_dir . '/ssl.crt',
     'ssl_key_file' => $ssl_dir . '/ssl.key',
     'open_http2_protocol' => true,
 ]);
+~~~
+
+## nginx+swoole配置
+~~~
+server {
+    root /data/wwwroot/;
+    server_name local.swoole.com;
+
+    location / {
+        proxy_http_version 1.1;
+        proxy_set_header Connection "keep-alive";
+        proxy_set_header X-Real-IP $remote_addr;
+        if (!-e $request_filename) {
+             proxy_pass http://127.0.0.1:9501;
+        }
+    }
+}
+~~~
+在swoole中通过读取$request->header['x-real-ip']来获取客户端的真实IP
