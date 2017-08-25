@@ -52,3 +52,4 @@
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
+* [swoole_model](swoole-concise-guide/SUMMARY.md)
