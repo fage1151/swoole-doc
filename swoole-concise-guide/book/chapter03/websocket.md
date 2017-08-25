@@ -24,12 +24,13 @@ $server->on('close', function ($ser, $fd) {
 
 $server->start();
 ~~~
-onRequest回调
+### onRequest回调
 swoole_websocket_server 继承自 swoole_http_server
 
-设置了onRequest回调，websocket服务器也可以同时作为http服务器
-未设置onRequest回调，websocket服务器收到http请求后会返回http 400错误页面
-客户端
+* 设置了onRequest回调，websocket服务器也可以同时作为http服务器
+* 未设置onRequest回调，websocket服务器收到http请求后会返回http 400错误页面
+
+### 客户端
 * Chrome/Firefox/高版本IE/Safari等浏览器内置了JS语言的WebSocket客户端
 * 微信小程序开发框架内置的WebSocket客户端
 * 异步的PHP程序中可以使用Swoole\Http\Client作为WebSocket客户端
