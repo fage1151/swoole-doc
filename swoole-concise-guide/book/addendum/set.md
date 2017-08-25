@@ -23,7 +23,7 @@ $serv->set(array(
 ```
 配置选项以及相关介绍如下：
 
-##reactor_num
+## reactor_num
 描述：指定Reactor线程数<br>
 说明：设置主进程内事件处理线程的数量，默认会启用CPU核数相同的数量，
 一般设置为CPU核数的**1-4倍**，最大不得超过CPU核数*4。<br>
@@ -40,7 +40,7 @@ $serv->set(array(
 'worker_num' => 8
 ```
 
-##max_request
+## max_request
 描述：每个worker进程允许处理的最大任务数。<br>
 说明：设置该值后，每个worker进程在处理完max_request个请求后就会自动重启。设置该值的主要目的是为了防止worker进程处理大量请求后可能引起的内存溢出。<br>
 示例：<br>
@@ -56,7 +56,7 @@ $serv->set(array(
 'max_conn' => 10000
 ```
 
-##ipc_mode
+## ipc_mode
 描述：设置进程间的通信方式。<br>
 说明：共有三种通信方式，参数如下：<br>
 >- 1 => 使用unix socket通信
@@ -68,7 +68,7 @@ $serv->set(array(
 'ipc_mode' => 1
 ```
 
-##dispatch_mode
+## dispatch_mode
 描述：指定数据包分发策略。<br>
 说明：共有三种模式，参数如下：<br>
 >- 1 => 轮循模式，收到会轮循分配给每一个worker进程
@@ -80,7 +80,7 @@ $serv->set(array(
 'dispatch_mode' => 2
 ```
 
-##task_worker_num
+## task_worker_num
 描述：服务器开启的task进程数。<br>
 说明：设置此参数后，服务器会开启异步task功能。此时可以使用**task**方法投递异步任务。<br>
 >设置此参数后，必须要给swoole_server设置onTask/onFinish两个回调函数，否则启动服务器会报错。<br>
@@ -90,7 +90,7 @@ $serv->set(array(
 'task_worker_num' => 8
 ```
 
-##task_max_request
+## task_max_request
 描述：每个task进程允许处理的最大任务数。<br>
 说明：参考[max_request](#2max_request)
 task_worker_num<br>
@@ -107,7 +107,7 @@ task_worker_num<br>
 'task_ipc_mode' => 2
 ```
 
-##task_tmpdir
+## task_tmpdir
 描述：设置task的数据临时目录<br>
 说明：在swoole_server中，如果投递的数据超过8192字节，将启用临时文件来保存数据。这里的task_tmpdir就是用来设置临时文件保存的位置。<br>
 
@@ -118,7 +118,7 @@ task_worker_num<br>
 'task_tmpdir' => '/tmp/task/'
 ```
 
-##daemonize
+## daemonize
 描述：设置程序进入后台作为守护进程运行。<br>
 说明：长时间运行的服务器端程序必须启用此项。如果不启用守护进程，当ssh终端退出后，程序将被终止运行。启用守护进程后，标准输入和输出会被重定向到 [log_file](#10log_file)，如果 [log_file](#10log_file)未设置，则所有输出会被丢弃。<br>
 示例：<br>
@@ -126,7 +126,7 @@ task_worker_num<br>
 'daemonize' => 0
 ```
 
-##log_file
+## log_file
 描述：指定日志文件路径<br>
 说明：在swoole运行期发生的异常信息会记录到这个文件中。默认会打印到屏幕。注意log_file **不会自动切分文件**，所以需要定期清理此文件。<br>
 示例：<br>
@@ -143,7 +143,7 @@ task_worker_num<br>
 'log_level' => '1
 ```
 
-##heartbeat_check_interval
+## heartbeat_check_interval
 描述：设置心跳检测间隔<br>
 说明：此选项表示每隔多久轮循一次，单位为秒。每次检测时遍历所有连接，如果某个连接在间隔时间内没有数据发送，则强制关闭连接（会有onClose回调）。<br>
 示例：<br>
@@ -151,7 +151,7 @@ task_worker_num<br>
 'heartbeat_check_interval' => 60
 ```
 
-##heartbeat_idle_time
+## heartbeat_idle_time
 描述：设置某个连接允许的最大闲置时间。<br>
 说明：该参数配合[heartbeat_check_interval](#11heartbeat_check_interval)使用。每次遍历所有连接时，如果某个连接在[heartbeat_idle_time](#12heartbeat_idle_time)时间内没有数据发送，则强制关闭连接。默认设置为[heartbeat_check_interval](#11heartbeat_check_interval) * 2。<br>
 示例：<br>
@@ -159,7 +159,7 @@ task_worker_num<br>
 'heartbeat_idle_time' => 600
 ```
 
-##open_eof_split
+## open_eof_split
 描述：打开eof检测功能<br>
 说明：与[package_eof ](#14package_eof )配合使用。此选项将检测客户端连接发来的数据，当数据包结尾是指定的[package_eof ](#14package_eof )字符串时才会将数据包投递至Worker进程，否则会一直拼接数据包直到缓存溢出或超时才会终止。一旦出错，该连接会被判定为恶意连接，数据包会被丢弃并强制关闭连接。<br>
 > EOF检测不会从数据中间查找eof字符串，所以Worker进程可能会同时收到多个数据包，需要在应用层代码中自行**explode("\r\n", $data)** 来拆分数据包<br>
@@ -169,7 +169,7 @@ task_worker_num<br>
 'open_eof_split' => true
 ```
 
-##package_eof
+## package_eof
 描述：设置EOF字符串<br>
 说明：package_eof最大只允许传入**8个**字节的字符串<br>
 示例：<br>
@@ -185,7 +185,7 @@ task_worker_num<br>
 'open_length_check' => true
 ```
 
-##package_length_offset
+## package_length_offset
 描述：包头中第几个字节开始存放了长度字段<br>
 说明：配合[open_length_check](#15open_length_check)使用，用于指明长度字段的位置。<br>
 示例：<br>
@@ -201,7 +201,7 @@ task_worker_num<br>
 'package_body_offset' => 10
 ```
 
-##package_length_type
+## package_length_type
 描述：指定包长字段的类型<br>
 说明：配合[open_length_check](#15open_length_check)使用，指定长度字段的类型，参数如下：<br>
 >- 's' => int16_t      机器字节序
@@ -216,7 +216,7 @@ task_worker_num<br>
 'package_length_type' => 'N'
 ```
 
-##package_max_length
+## package_max_length
 描述：设置最大数据包尺寸<br>
 说明：该值决定了数据包缓存区的大小。如果缓存的数据超过了该值，则会引发错误。具体错误处理由开启的协议解析的类型决定。<br>
 示例：<br>
@@ -224,7 +224,7 @@ task_worker_num<br>
 'package_max_length' => 8192
 ```
 
-##open_cpu_affinity
+## open_cpu_affinity
 描述：启用CPU亲和性设置<br>
 说明：在多核的硬件平台中，启用此特性会将swoole的reactor线程/worker进程绑定到固定的一个核上。可以避免进程/线程的运行时在多个核之间互相切换，提高CPU Cache的命中率。<br>
 示例：<br>
@@ -244,7 +244,7 @@ task_worker_num<br>
 'cpu_affinity_ignore' => array(0, 1)
 ```
 
-##open_tcp_nodelay
+## open_tcp_nodelay
 描述：启用open_tcp_nodelay<br>
 说明：开启后TCP连接发送数据时会无关闭Nagle合并算法，立即发往客户端连接。在某些场景下，如http服务器，可以提升响应速度。<br>
 示例：<br>
@@ -252,7 +252,7 @@ task_worker_num<br>
 'open_tcp_nodelay' => true
 ```
 
-##tcp_defer_accept
+## tcp_defer_accept
 描述：启用tcp_defer_accept特性<br>
 说明：启动后，只有一个TCP连接有数据发送时才会触发accept。<br>
 示例：<br>
@@ -260,7 +260,7 @@ task_worker_num<br>
 'tcp_defer_accept' => true
 ```
 
-##open_tcp_keepalive
+## open_tcp_keepalive
 描述：打开TCP的KEEP_ALIVE选项<br>
 说明：使用TCP内置的keep_alive属性，用于保证连接不会因为长时闲置而被关闭。<br>
 示例：<br>
@@ -268,7 +268,7 @@ task_worker_num<br>
 'open_tcp_keepalive' => true
 ```
 
-##tcp_keepidle
+## tcp_keepidle
 描述：指定探测间隔。<br>
 说明：配合[open_tcp_keepalive](#24open_tcp_keepalive)使用，如果某个连接在[tcp_keepidle](#25tcp_keepidle)内没有任何数据来往，则进行探测。<br>
 示例：<br>
@@ -276,7 +276,7 @@ task_worker_num<br>
 'tcp_keepidle' => 600
 ```
 
-##tcp_keepinterval
+## tcp_keepinterval
 描述：指定探测时的发包间隔<br>
 说明：配合[open_tcp_keepalive](#24open_tcp_keepalive)使用<br>
 示例：<br>
@@ -284,7 +284,7 @@ task_worker_num<br>
 'tcp_keepinterval' => 60
 ```
 
-##tcp_keepcount
+## tcp_keepcount
 描述：指定探测的尝试次数<br>
 说明：配合[open_tcp_keepalive](#24open_tcp_keepalive)使用，若[tcp_keepcount](#27tcp_keepcount)次尝试后仍无响应，则判定连接已关闭。<br>
 示例：<br>
@@ -292,7 +292,7 @@ task_worker_num<br>
 'tcp_keepcount' => 5
 ```
 
-##backlog
+## backlog
 描述：指定Listen队列长度<br>
 说明：此参数将决定最多同时有多少个等待accept的连接。<br>
 示例：<br>
@@ -348,7 +348,7 @@ discard_timeout_request如果设置为false，表示无论连接是否关闭Work
 'enable_reuse_port' => true
 ```
 
-##ssl_cert_file和ssl_key_file
+## ssl_cert_file和ssl_key_file
 描述：设置SSL隧道加密<br>
 说明：设置值为一个文件名字符串，指定**cert证书**和**key**的路径。<br>
 示例：<br>
