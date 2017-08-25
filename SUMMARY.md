@@ -93,6 +93,7 @@
     * [swoole_event_defer](swoole_event_defer.md)
     * [swoole_event_write](swoole_event_write.md)
     * [swoole_event_exit](swoole_event_exit.md)
+* [swoole提供的function](function.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
