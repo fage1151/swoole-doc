@@ -1,4 +1,4 @@
-# swoole_http_response->sendfile
+# swoole_server->sendfile
 发送文件到浏览器。
 
 ~~~
