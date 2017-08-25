@@ -55,3 +55,5 @@
 * [swoole-JsonRPC](https://github.com/smalleyes/swoole-JsonRPC) swoole简单实现jsonRPC
 * [hprose-swoole](https://github.com/hprose/hprose-swoole) Hprose for Swoole   
 * [syar](https://github.com/stcer/syar) swoole实现的yar服务
+
+**如果你有好的开源项目需要展示，欢迎提交PR**
