@@ -48,4 +48,4 @@ server {
     }
 }
 ~~~
-在swoole中通过读取$request->header['x-real-ip']来获取客户端的真实IP
+>在swoole中通过读取$request->header['x-real-ip']来获取客户端的真实IP
