@@ -3,6 +3,7 @@
 
 Swoole的Server和异步Client都是在onReceive回调函数中处理数据包，当设置了协议处理后，只有收到一个完整数据包时才会触发onReceive事件。同步客户端在设置了协议处理后，调用 $client->recv() 不再需要传入长度，recv函数在收到完整数据包或发生错误后返回。
 
+~~~
 $server->set(array(
     'open_length_check' => true,
     'package_max_length' => 81920,
@@ -10,3 +11,4 @@ $server->set(array(
     'package_length_offset' => 0,
     'package_body_offset' => 2,
 ));
+~~~
