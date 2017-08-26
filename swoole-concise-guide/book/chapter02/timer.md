@@ -12,7 +12,6 @@ Timer定时器是Swoole扩展提供的一个毫秒级定时器，其作用是每
 在Swoole中，定时器的函数原型如下：
 
 ```php
-
 // function onTimer(int $timer_id, mixed $params = null); // 回调函数的原型
 int swoole_timer_tick(int $ms, mixed $callback, mixed $param = null);
 int swoole_server::tick(int $ms, mixed $callback, mixed $param = null);
