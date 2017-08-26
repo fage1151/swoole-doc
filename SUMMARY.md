@@ -1,6 +1,7 @@
 * [swoole简介](README.md)
 * [swoole功能概述](default.md)
 * [序章](swoole-concise-guide/SUMMARY.md)
+    * [开发必读](dev.md)
 * [1 环境搭建](swoole-concise-guide/book/chapter01/chapter01.md)
     * [1.1 环境搭建](swoole-concise-guide/book/chapter01/install.md)
     * [1.2 搭建Echo服务器](swoole-concise-guide/book/chapter01/echo_server.md)
