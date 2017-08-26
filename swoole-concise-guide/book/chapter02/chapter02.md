@@ -31,3 +31,26 @@ swoole_async_read/swoole_async_write 文件系统操作的异步接口
 
 ## swoole_table
 基于共享内存和自旋锁实现的超高性能内存表。彻底解决线程，进程间数据共享，加锁同步等问题。
+
+## tcp server
+```php
+<?php
+$serv = new swoole_server('127.0.0.1', 9501);
+
+
+
+$serv->on('connect', function ($serv, $fd) {
+    echo "Client:Connect.\n";
+});
+
+
+$serv->on('receive', function ($serv, $fd, $from_id, $data) {
+    $serv->send($fd, $data);
+});
+
+$serv->on('close', function ($serv, $fd) {
+    echo "Client: Close.\n";
+});
+
+// Start our server, listen on the port and be ready to accept connections.
+$serv->start();
