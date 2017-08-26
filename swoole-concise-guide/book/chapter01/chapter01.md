@@ -27,3 +27,11 @@ Going through this chapter, we can learn how to quick set up a complete Swoole d
 | RPC | Hprose | Master 分支 Branch |
 | PRC | Dora-RPC | Master 分支 Branch |
 | DB Model | ThinkPHP | 3.2.2 (仅使用Model模块 Only Model Used) |
+
+## 默认读者已具备如下能力：
+
+* 熟练使用PHP语言
+* 熟练使用MySQL、Redis数据库
+* 熟练使用Linux操作系统
+* 基本了解Unix网络编程相关知识（参阅《Unix网络编程（卷1）》）
+* 基本的gdb使用
