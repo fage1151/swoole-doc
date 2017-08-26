@@ -43,9 +43,13 @@ v2.0.5
 * onPacket  
 * onRequest  
 * onHandShake  
+
 v2.0.6  
+
 * onMessage  
+
 v2.0.7  
+
 * onOpen  
 * Redis\Server->handler
 **新增配置**
