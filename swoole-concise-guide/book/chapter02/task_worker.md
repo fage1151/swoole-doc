@@ -116,3 +116,94 @@ public function onFinish($serv,$task_id, $data) {
 
 [点此查看完整示例](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/02/swoole_task_server.php)
 
+##**3.Task进阶：MySQL连接池**
+上一章中我简单讲解了如何开启和使用Task功能。这一节，我将提供一个Task的高级用法。<br>
+
+在PHP中，访问MySQL数据库往往是性能提升的瓶颈。而MySQL连接池我想大家都不陌生，这是一个很好的提升数据库访问性能的方式。传统的MySQL连接池，是预先申请一定数量的连接，每一个新的请求都会占用其中一个连接，请求结束后再将连接放回池中，如果所有连接都被占用，新来的连接则会进入等待状态。<br>
+知道了MySQL连接池的实现原理，那我们来看如何使用Swoole实现一个连接池。<br>
+首先，Swoole允许开启一定量的Task Worker进程，我们可以让每个进程都拥有一个MySQL连接，并保持这个连接，这样，我们就创建了一个连接池。<br>
+其次，设置swoole的[dispatch_mode](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/01.%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9.md#5dispatch_mode)为抢占模式(主进程会根据Worker的忙闲状态选择投递，只会投递给处于闲置状态的Worker)。这样，每个task都会被投递给闲置的Task Worker。这样，我们保证了每个新的task都会被闲置的Task Worker处理，如果全部Task Worker都被占用，则会进入等待队列。<br>
+
+下面直接上关键代码：<br>
+```php
+public function onWorkerStart( $serv , $worker_id) {
+    echo "onWorkerStart\n";
+    // 判定是否为Task Worker进程
+    if( $worker_id >= $serv->setting['worker_num'] ) {
+    	$this->pdo = new PDO(
+    		"mysql:host=localhost;port=3306;dbname=Test", 
+    		"root", 
+    		"123456", 
+    		array(
+                PDO::MYSQL_ATTR_INIT_COMMAND => "SET NAMES 'UTF8';",
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_PERSISTENT => true
+        	)
+        );
+    }
+}
+```
+首先，在每个Task Worker进程中，创建一个MySQL连接。这里我选用了PDO扩展。<br>
+
+```php
+public function onReceive( swoole_server $serv, $fd, $from_id, $data ) {
+    $sql = array(
+    	'sql'=>'select * from Test where pid > ?',
+    	'param' => array(
+    		0
+    	),
+    	'fd' => $fd
+    );
+    $serv->task( json_encode($sql) );
+}
+```
+其次，在需要的时候，通过[task]()函数投递一个任务（也就是发起一次SQL请求）<br>
+```php
+public function onTask($serv,$task_id,$from_id, $data) {
+   	$sql = json_decode( $data , true );
+	
+	$statement = $this->pdo->prepare($sql['sql']);
+    $statement->execute($sql['param']);    	
+
+    $result = $statement->fetchAll(PDO::FETCH_ASSOC);
+    $serv->send( $sql['fd'],json_encode($result));
+	return true;
+}
+```
+最后，在onTask回调中，根据请求过来的SQL语句以及相应的参数，发起一次MySQL请求，并将获取到的结果通过send发送给客户端（或者通过return返回给Worker进程）。而且，这样的一次MySQL请求还不会阻塞Worker进程，Worker进程可以继续处理其他的逻辑。<br>
+
+可以看到，简单十几行代码，就实现了一个高效的异步MySQL连接池。<br>
+通过测试，单个客户端一共发起1W次select请求，共耗时9s;<br> 1W次insert请求，共耗时21s。<br>
+(客户端会在每次收到前一个请求的结果后才会发起下一次请求，而不是并发)。
+
+[点此查看完整服务端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_server.php)<br>
+[点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
+
+##**4.Task实战：yii中应用task**
+在YII框架中结合了swoole 的task 做了异步处理。
+本例中 主要用到
+1、protected/commands/ServerCommand.php 用来做server。
+2、protected/event/下的文件 这里是在异步中的具体实现。
+
+客户端调用参照 TestController
+```php
+<?php
+class TestController extends Controller{
+    public function actionTT(){
+        $message['uid'] = 2;
+        $message['email'] = '83212019@qq.com';
+        $message['title'] = '接口报警邮件';
+        $message['contents'] = "'EmailEvent'接口请求过程出错！ 错误信息如下：err_no:'00000' err_msg:'测试队列' 请求参数为:'[]'";
+        $message['type'] = 2;
+
+        $data['param'] = $message;
+        $data['class'] = 'Email';
+        $client = new EventClient();
+        $data = $client->send($data);
+    }
+}
+?>
+```
+
+有个task表是用来记录异步任务的。如果失败重试3次。sql在protected/data/sql.sql里。  
+[点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
