@@ -3,7 +3,7 @@
 * [入门指引](swoole-concise-guide/SUMMARY.md)
     * [附录*配置选项](swoole-concise-guide/book/addendum/set.md)
     * [附录*函数列表](swoole-concise-guide/book/addendum/function.md)
-* [序章](swoole-concise-guide/book/preface.md)
+* [序章](swoole-concise-guide/SUMMARY.md)
 * [1 环境搭建](swoole-concise-guide/book/chapter01/chapter01.md)
     * [1.1 环境搭建](swoole-concise-guide/book/chapter01/install.md)
     * [1.2 搭建Echo服务器](swoole-concise-guide/book/chapter01/echo_server.md)
