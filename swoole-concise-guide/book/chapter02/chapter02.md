@@ -4,6 +4,14 @@ Swoole虽然是标准的PHP扩展，实际上与普通的扩展不同。普通�
 新手入门教程：https://github.com/LinkedDestiny/swoole-doc
 Swoole要求使用者必须具备一定的Linux/Unix环境编程基础，《学习Swoole需要掌握哪些基础知识》 本文列出了基础知识清单。
 
+默认读者已具备如下能力：
+
+* 熟练使用PHP语言
+* 熟练使用MySQL、Redis数据库
+* 熟练使用Linux操作系统
+* 基本了解Unix网络编程相关知识（参阅《Unix网络编程（卷1）》）
+* 基本的gdb使用
+
 ## swoole_server
 强大的TCP/UDP Server框架，多线程，EventLoop，事件驱动，异步，Worker进程组，Task异步任务，毫秒定时器，SSL/TLS隧道加密。
 
