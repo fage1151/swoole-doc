@@ -27,7 +27,7 @@
     * [附录*配置选项](swoole-concise-guide/book/addendum/set.md)
     * [附录*函数列表](swoole-concise-guide/book/addendum/function.md)
 * [swoole_server](module/server.md)
-    * [server::set](server/set.md)
+    * [server配置](server/set.md)
     * [server函数](server/function.md)
     * [server属性](server/04.swoole_server属性列表.md)
     * [server回调函数](server/02.swoole_server事件回调函数.md)
