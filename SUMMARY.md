@@ -14,7 +14,7 @@
         * [2.6 多端口监听](swoole-concise-guide/book/chapter02/port.md)
         * [2.7 sendfile文件支持](swoole-concise-guide/book/chapter02/sendfile.md)
         * [2.8 SSL支持](swoole-concise-guide/book/chapter02/ssl.md)
-    * [3 Swoole协议](swoole-concise-guide/book/chapter03/chapter03.md)
+    * [3 Swoole协议](server/05.Swoole的自定义协议功能的使用.md)
         * [3.1 EOF协议](swoole-concise-guide/book/chapter03/eof.md)
         * [3.2 固定包头协议](swoole-concise-guide/book/chapter03/head.md)
         * [3.3 Http协议](swoole-concise-guide/book/chapter03/http.md)
