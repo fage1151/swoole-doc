@@ -29,8 +29,6 @@
     * [server属性](server/04.swoole_server属性列表.md)
     * [server回调函数](server/02.swoole_server事件回调函数.md)
     * [server高级特性](server/05.swoole_server高级特性.md)
-    * [task worker](server/task.md)
-    * [echo server](server/echo.md)
     * [http_server](module/http_server.md)
     * [websocket_server](module/websocket.md)
 * [swoole_client](module/client.md)
