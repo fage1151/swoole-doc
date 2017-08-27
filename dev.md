@@ -29,7 +29,14 @@ swoole本身已经是一个类似apache/nginx的容器，只要PHP环境OK swool
 3、ip或者端口写错了 (15%的几率)
 4、服务端没启动
 
-**6、不要使用exit die语句**
+**6、编程注意事项**
+
+* 不要在代码中执行sleep以及其他睡眠函数，这样会导致整个进程阻塞
+* exit/die是危险的，会导致worker进程退出
+* 可通过register_shutdown_function来捕获致命错误，在进程异常退出时做一些请求工作，具体参看/wiki/page/305.html
+* PHP代码中如果有异常抛出，必须在回调函数中进行try/catch捕获异常，否则会导致工作进程退出
+* swoole不支持set_exception_handler，必须使用try/catch方式处理异常
+* Worker进程不得共用同一个Redis或MySQL等网络服务客户端，Redis/MySQL创建连接的相关代码可以放到onWorkerStart回调函数中
 
 否则进程会退出。当然，进程退出了会立刻重启一个新的进程继续服务。如果需要返回，可以调用return。
 
