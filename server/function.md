@@ -91,7 +91,6 @@ public function bool swoole_server->on(string $event, mixed $callback);
 
 **说明**：<br>
 该函数必须在[swoole_server::start](#swoole_serverstart)函数调用前调用。<br>
-此方法与[swoole_server::handler](#swoole_serverhandler)功能相同，作用是与swoole_client风格保持一致。<br>
 [swoole_server::on](#swoole_serveron)中事件名称字符串不要加on。<br>
 全部的回调函数列表[点此查看](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md)<br>
 **样例**:<br>
@@ -190,39 +189,6 @@ $server->on('receive', function ($serv, $fd, $from_id, $data) use ($process) {
 $server->start();
 
 ```
-
-## **swoole_server::handler**
-**功能描述**：设置Server的事件回调函数<br>
-**函数原型**：<br>
-```php
-// 类成员函数
-public function swoole_server::handler(string $event_name, mixed $event_callback_function);
-// 公共函数
-function swoole_server_handler(swoole_server $serv, string $event_name, mixed $event_callback_function);
-```
-**返回**：设置成功返回true，否则返回false<br>
-**参数说明**：<br>
-
-| 参数        | 说明   |
-|  --------  |  -------- |
-| string event_name | 回调的名称（大小写不敏感） |
-| mixed event_callback_function | 回调的PHP函数，可以是函数名的字符串，类静态方法，对象方法数组，匿名函数 |
-
-**说明**：
-该函数必须在[swoole_server::start](#swoole_server::start)函数调用前调用。<br>
-事件名称字符串要加on。<br>
-全部的回调函数列表[点此查看](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md)<br>
-> onConnect/onClose/onReceive这3个回调函数必须设置。其他事件回调函数可选<br>
-如果设定了timer定时器，onTimer事件回调函数也必须设置<br>
-如果启用了task_worker，onTask/onFinish事件回调函数必须设置<br>
-
-**样例**:
-```php
-$serv->handler('onStart', 'my_onStart');
-$serv->handler('onStart', array($this, 'my_onStart'));
-$serv->handler('onStart', 'myClass::onStart');
-```
-
 ## **swoole_server::start**
 **功能描述**：启动server，开始监听所有TCP/UDP端口<br>
 **函数原型**：<br>
