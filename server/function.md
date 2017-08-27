@@ -747,3 +747,12 @@ $server->start();
 ~~~
 * group 表示组播地址
 * interface 表示网络接口的名称，可以为数字或字符串，如eth0、wlan0
+
+## **swoole_server->protect**
+**功能描述**：设置客户端连接为保护状态，不被心跳线程切断。
+**函数原型**：
+~~~
+function swoole_server->protect(int $fd, bool $value = 1);
+~~~
+* $fd 要设置保护状态的客户端连接fd
+* $value 设置的状态，true表示保护状态，false表示不保护
