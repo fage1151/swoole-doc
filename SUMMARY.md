@@ -85,3 +85,4 @@
     * [如何选择swoole三种模式](如何选择swoole三种模式.md)
     * [swoole生命周期](swoole生命周期.md)
     * [swoole_server中内存管理机制](swoole_server中内存管理机制.md)
+    * [php四种回调写法](php四种回调写法.md)
