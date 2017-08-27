@@ -301,7 +301,7 @@ $serv->deltimer(1000);
 // 类成员函数
 public function swoole_server::after(int $after_time_ms, mixed $callback_function, mixed params);
 // 公共函数
-function swoole_timer_after(swoole_server $serv, int $after_time_ms， mixed $callback_function, mixed params);
+function swoole_timer_after(int $after_time_ms, mixed $callback_function, mixed params);
 ```
 **返回**：无<br>
 **参数说明**：<br>
