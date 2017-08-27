@@ -71,9 +71,10 @@ $serv->set(array(
 ## dispatch_mode
 描述：指定数据包分发策略。<br>
 说明：共有三种模式，参数如下：<br>
+
 >- 1 => 轮循模式，收到会轮循分配给每一个worker进程
 >- 2 => 固定模式，根据连接的文件描述符分配worker。这样可以保证同一个连接发来的数据只会被同一个worker处理
-- 3 => 抢占模式，主进程会根据Worker的忙闲状态选择投递，只会投递给处于闲置状态的Worker
+>- 3 => 抢占模式，主进程会根据Worker的忙闲状态选择投递，只会投递给处于闲置状态的Worker
 
 示例：
 ```php
@@ -83,7 +84,8 @@ $serv->set(array(
 ## task_worker_num
 描述：服务器开启的task进程数。<br>
 说明：设置此参数后，服务器会开启异步task功能。此时可以使用**task**方法投递异步任务。<br>
->设置此参数后，必须要给swoole_server设置onTask/onFinish两个回调函数，否则启动服务器会报错。<br>
+
+>设置此参数后，必须要给swoole_server设置onTask/onFinish两个回调函数，否则启动服务器会报错。
 
 示例：
 ```php
