@@ -674,7 +674,7 @@ public function swoole_server::heartbeat(bool $if_close_connection = true);
 | bool if_close_connection | 是否关闭超时的连接，默认为true |
 
 **说明**：<br>
-该函数会主动发起一次检测，遍历全部连接，根据设置的[heartbeat_check_interval](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/01.%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9.md#11heartbeat_check_interval)和[heartbeat_idle_time](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/01.%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9.md#12heartbeat_idle_time)参数，找到那些处于idle闲置状态的连接<br>
+该函数会主动发起一次检测，遍历全部连接，根据设置的[heartbeat_check_interval](server/set.md)和[heartbeat_idle_time](server/set.md)参数，找到那些处于idle闲置状态的连接<br>
 swoole默认会直接关闭这些连接，heartbeat会返回这些连接的fd<br>
 如果if_close_connection为false，则heartbeat会返回这些idle连接的fd，但不会关闭这些连接<br>
 if_close_connection参数 在swoole-1.7.4以上版本可用<br>
