@@ -9,6 +9,7 @@
 * file_get_contents/fread等文件读取函数
 * swoole_server->taskwait
 * swoole_server->sendwait
+
 swoole_server的PHP代码中有上述函数，Server就是同步服务器
 代码中没有上述函数就是异步服务器
 ## 异步非阻塞函数
