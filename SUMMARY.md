@@ -93,6 +93,7 @@
     * [守护进程程序常用数据结构](守护进程程序常用数据结构.md)
     * [学习Swoole需要掌握哪些基础知识](学习Swoole需要掌握哪些基础知识.md)
     * [在phpinfo中有在php-m中没有](qqq.md)
+    * [同步阻塞与异步非阻塞选择](同步阻塞与异步非阻塞选择.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
