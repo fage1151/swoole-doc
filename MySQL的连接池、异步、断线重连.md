@@ -27,7 +27,7 @@ MySQL短连接每次请求操作数据库都需要建立与MySQL服务器建立T
 * 执行mysql_connect后，重新执行mysql_query，这时必然会成功，因为已经重新建立了连接
 * 如果mysql_query返回成功，那么连接是有效的，这是一次正常的调用
 
->可参考swoole_framework中的代码
+>可参考[swoole_framework中的代码](https://github.com/swoole/framework/blob/master/libs/Swoole/Database/MySQL.php)
 
 ## MySQL异步
 
