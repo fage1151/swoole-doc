@@ -65,7 +65,6 @@ string swoole_strerror(int $errno);
 |  --------  |  -------- |
 | int errno | errno错误码 |
 
-**说明**：<br>
 **样例**:
 ```php
 echo swoole_strerror( $errno );
