@@ -110,6 +110,7 @@ public function swoole_server::addlistener(string $host, int $port, $type = SWOO
 // 公共函数
 function swoole_server_addlisten(swoole_server $serv, string $host, int $port, $type = SWOOLE_SOCK_TCP);
 ```
+别名swoole_server->listen
 **返回**：无<br>
 **参数说明**：<br>
 
