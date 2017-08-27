@@ -89,6 +89,7 @@
     * [为什么不要send完后立即close](为什么不要send完后立即close.md)
     * [不同的Server程序实例间如何通信](不同的Server程序实例间如何通信.md)
     * [MySQL的连接池、异步、断线重连](MySQL的连接池、异步、断线重连.md)
+    * [在php-fpm或apache中使用swoole](在php-fpm或apache中使用swoole.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
