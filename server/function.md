@@ -240,14 +240,14 @@ public function swoole_server::shutdown()
 $serv->shutdown();
 ```
 
-## **swoole_server::addtimer**
+## **swoole_server::tick**
 **功能描述**：设置一个固定间隔的定时器<br>
 **函数原型**：<br>
 ```php
 // 类成员函数
-public function swoole_server::addtimer(int $interval);
+public function swoole_server->tick(int $ms, callable $callback, mixed $user_param);
 // 公共函数
-function swoole_server_addtimer(swoole_server $serv, int $interval);
+function swoole_timer_tick(int $ms, callable $callback, mixed $user_param);
 ```
 **返回**：设置成功返回true，否则返回false<br>
 **参数说明**：<br>
@@ -255,6 +255,7 @@ function swoole_server_addtimer(swoole_server $serv, int $interval);
 | 参数        | 说明   |
 |  --------  |  -------- |
 | int interval | 定时器的时间间隔，单位为毫秒ms |
+| callback $callback | 定时器的回调函数，单位为毫秒ms |
 
 **说明**：<br>
 swoole定时器的最小颗粒是1毫秒，支持多个不同间隔的定时器。<br>
