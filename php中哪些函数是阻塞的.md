@@ -10,8 +10,9 @@
 * swoole_server->taskwait
 * swoole_server->sendwait
 
-swoole_server的PHP代码中有上述函数，Server就是同步服务器
-代码中没有上述函数就是异步服务器
+>swoole_server的PHP代码中有上述函数，Server就是同步服务器
+>代码中没有上述函数就是异步服务器
+
 ## 异步非阻塞函数
 * swoole_client异步模式
 * mysql-async库
