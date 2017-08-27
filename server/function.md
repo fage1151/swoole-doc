@@ -234,6 +234,25 @@ public function swoole_server::reload()
 ```php
 $serv->reload();
 ```
+## **swoole_server->stop**
+**功能描述**：使当前worker进程停止运行，并立即触发onWorkerStop回调函数。<br>
+**函数原型**：<br>
+```php
+// 类成员函数
+function swoole_server->stop(int $worker_id = -1, bool $waitEvent = false);
+```
+**返回**：调用成功返回true，否则返回false<br>
+**参数说明**：无<br>
+**说明**：<br>
+* 使用此函数代替exit/die结束Worker进程的生命周期
+* $waitEvent可以控制退出策略，默认为false表示立即退出，设置为true表示等待事件循环为空时再退出
+* 如果要结束其他Worker进程，可以在stop里面加上worker_id作为参数或者使用swoole_process::kill($worker_pid)
+* 设置$waitEvent = true后，底层会使用异步安全重启策略。先通知Manager进程，重新启动一个新的Worker来处理新的请求。当前旧的Worker会等待事件，直到事件循环为空或者超过max_wait_time后，退出进程，最大限度的保证异步事件的安全性。
+
+**样例**:
+```php
+$serv->shutdown();
+```
 
 ## **swoole_server::shutdown**
 **功能描述**：关闭服务器。<br>
