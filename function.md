@@ -46,8 +46,6 @@ sleep(1000);
 string swoole_version();
 ```
 **返回**：swoole扩展的版本号<br>
-**参数说明**：无<br>
-**说明**：<br>
 **样例**:
 ```php
 echo swoole_version();
