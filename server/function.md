@@ -267,16 +267,19 @@ swoole定时器的最小颗粒是1毫秒，支持多个不同间隔的定时器�
 
 **样例**:
 ```php
-$serv->addtimer(1000);              //1s
-swoole_server_addtimer($serv,20);   //20ms
+function onReceive($server, $fd, $from_id, $data) {
+    $server->tick(1000, function() use ($server, $fd) {
+        $server->send($fd, "hello world");
+    });
+}
 ```
 
-## **swoole_server::deltimer**
+## **swoole_server::clearTimer**
 **功能描述**：删除指定的定时器。<br>
 **函数原型**：<br>
 ```php
 // 类成员函数
-public function swoole_server::deltimer(int $interval);
+public function swoole_server::clearTimer(int $timer_id);
 ```
 
 **返回**：无<br>
@@ -284,14 +287,14 @@ public function swoole_server::deltimer(int $interval);
 
 | 参数        | 说明   |
 |  --------  |  -------- |
-| int interval | 定时器的时间间隔，单位为毫秒ms |
+| int $timer_id | 定时器的id |
 
 **说明**：<br>
-删除间隔为interval的定时器
+删除id为$timer_id的定时器
 
 **样例**:
 ```php
-$serv->deltimer(1000);
+$serv->clearTimer(1000);
 ```
 
 ## **swoole_server::after**
