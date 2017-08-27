@@ -6,6 +6,7 @@
 * 在swoole_server中，应当在onWorkerStart中创建连接对象
 * 在swoole_process中，应当在swoole_process->start后，子进程回调函数中创建连接对象
 * 本页面所述信息对使用pcntl_fork的程序同样有效
+
 **示例**
 
 ~~~php
