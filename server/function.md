@@ -589,7 +589,7 @@ if (isset($results[2])) {
     echo "任务3的执行结果为{$results[2]}\n";
 }
 ```
-## **swoole_server->taskCo **
+## swoole_server->taskCo 
 **功能描述**：并发执行Task并进行协程调度。仅用于2.0版本。
 **函数原型**：<br>
 ~~~
