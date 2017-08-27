@@ -75,9 +75,6 @@
     * [swoole_event_write](swoole_event_write.md)
     * [swoole_event_exit](swoole_event_exit.md)
 * [swoole提供的function](function.md)
-* [swoole-worker手册](swoole-worker/swoole-worker.md)
-* [swoole相关开源项目](module/relate.md)
-* [写在后面的话](speak.md)
 * [常见问题](common_problem.md)
     * [客户端链接失败原因](connect_refuse.md)
     * [如何设置进程数](process_count.md)
@@ -87,3 +84,7 @@
     * [swoole_server中内存管理机制](swoole_server中内存管理机制.md)
     * [php四种回调写法](php四种回调写法.md)
     * [php中哪些函数是阻塞的](php中哪些函数是阻塞的.md)
+* [swoole-worker手册](swoole-worker/swoole-worker.md)
+* [swoole相关开源项目](module/relate.md)
+* [写在后面的话](speak.md)
+
