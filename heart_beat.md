@@ -32,3 +32,6 @@ array(
 * 如果只设置了heartbeat_idle_time未设置heartbeat_check_interval底层将不会创建心跳检测线程，PHP代码中可以调用heartbeat方法手工处理超时的连接
 * 在设置这两个选项后，swoole会在内部启动一个线程，每隔heartbeat_check_interval秒后遍历一次全部连接，检查最近一次发送数据的时间和当前时间的差，如果这个差值大于heartbeat_idle_time，则会强制关闭这个连接，并通过回调onClose通知Server进程。 
 
+## 高级用法：
+使用swoole_server::heartbeat()函数手工检测心跳是否到期。此函数会返回闲置时间超过heartbeat_idle_time的所有TCP连接。程序中可以将这些连接做一些操作，如发送数据或关闭连接。
+
