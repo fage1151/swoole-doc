@@ -145,6 +145,51 @@ $serv->addlistener("/var/run/myserv.sock", 0, SWOOLE_UNIX_STREAM);
 
 swoole_server_addlisten($serv, "127.0.0.1", 9502, SWOOLE_SOCK_TCP);
 ```
+## **swoole_server::addProcess**
+**功能描述**：添加一个用户自定义的工作进程。<br>
+**函数原型**：<br>
+```php
+// 类成员函数
+public function bool swoole_server->addProcess(swoole_process $process);
+```
+**返回**：无<br>
+**参数说明**：<br>
+
+* $process 为swoole_process对象，注意不需要执行start。在swoole_server启动时会自动创建进程，并执行指定的子进程函数
+* 创建的子进程可以调用$server对象提供的各个方法，如connection_list/connection_info/stats
+* 在worker/task进程中可以调用$process提供的方法与子进程进行通信
+* 在用户自定义进程中可以调用$server->sendMessage与worker/task进程通信
+
+**说明**：
+
+>子进程会托管到Manager进程，如果发生致命错误，manager进程会重新创建一个
+>子进程内不能使用swoole_server->task/taskwait接口
+>此函数在swoole-1.7.9以上版本可用
+
+
+**样例**:<br>
+```php
+$server = new swoole_server('127.0.0.1', 9501);
+
+$process = new swoole_process(function($process) use ($server) {
+    while (true) {
+        $msg = $process->read();
+        foreach($server->connections as $conn) {
+            $server->send($conn, $msg);
+        }
+    }
+});
+
+$server->addProcess($process);
+
+$server->on('receive', function ($serv, $fd, $from_id, $data) use ($process) {
+    //群发收到的消息
+    $process->write($data);
+});
+
+$server->start();
+
+```
 
 ## **swoole_server::handler**
 **功能描述**：设置Server的事件回调函数<br>
