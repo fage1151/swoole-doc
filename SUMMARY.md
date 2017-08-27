@@ -85,6 +85,7 @@
     * [php四种回调写法](php四种回调写法.md)
     * [php中哪些函数是阻塞的](php中哪些函数是阻塞的.md)
     * [是否可以共用1个redis或mysql连接](是否可以共用1个redis或mysql连接.md)
+    * [如何在回调函数中访问外部的变量](如何在回调函数中访问外部的变量.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
