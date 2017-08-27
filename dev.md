@@ -58,7 +58,10 @@ swoole是常驻内存的框架，改代码要重启swoole server才能看到新�
 
 **11、不支持的函数**
 swoole运行在PHP CLI模式下，PHP CLI模式下无法使用HTTP相关的函数，例如header、setcookie、session_start等函数,可以使用swoole_http_response->header()，swoole_http_response->cookie(),也无法使用move_uploaded_file()，is_uploaded_file()这些函数。
-;
+无法使用php://input，请用swoole_http_request->rawContent()代替。
+无法使用$_SERVER、$_GET、$_POST、$_FILES、$_COOKIE、$_SESSION、$_REQUEST
+请使用swoole_http_request->$server、swoole_http_request->$get，swoole_http_request->$post，swoole_http_request->$files，swoole_http_request->$cookie分别替代
+
 
 
 
