@@ -4,7 +4,7 @@ swoole除了网络通信相关的函数外，还提供了一些获取系统信�
 ## swoole_set_process_name 
 用于设置进程的名称。修改进程名称后，此函数接受一个字符串参数。 此函数与PHP5.5提供的cli_set_process_title功能是相同的。但swoole_set_process_name可用于PHP5.2之上的任意版本。swoole_set_process_name兼容性比cli_set_process_title要差，如果存在cli_set_process_title函数则优先使用cli_set_process_title。
 **功能描述**：设置进程的名称
-**函数原型**：<br>
+**函数原型**：
 ```php
 // 公共函数
 void swoole_set_process_name(string $name);
