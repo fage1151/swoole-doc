@@ -86,3 +86,4 @@
     * [swoole生命周期](swoole生命周期.md)
     * [swoole_server中内存管理机制](swoole_server中内存管理机制.md)
     * [php四种回调写法](php四种回调写法.md)
+    * [php中哪些函数是阻塞的](php中哪些函数是阻塞的.md)
