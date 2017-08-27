@@ -29,11 +29,11 @@ swoole本身已经是一个类似apache/nginx的容器，只要PHP环境OK swool
 3、ip或者端口写错了 (15%的几率)
 4、服务端没启动
 
-**6、编程注意事项**
+**6、编码注意事项**
 
 * 不要在代码中执行sleep以及其他睡眠函数，这样会导致整个进程阻塞
 * exit/die是危险的，会导致worker进程退出，如果需要返回，可以调用return。
-* 可通过register_shutdown_function来捕获致命错误，在进程异常退出时做一些请求工作，具体参看/wiki/page/305.html
+* 可通过register_shutdown_function来捕获致命错误，在进程异常退出时做一些请求工作
 * PHP代码中如果有异常抛出，必须在回调函数中进行try/catch捕获异常，否则会导致工作进程退出
 * swoole不支持set_exception_handler，必须使用try/catch方式处理异常
 * Worker进程不得共用同一个Redis或MySQL等网络服务客户端，Redis/MySQL创建连接的相关代码可以放到onWorkerStart回调函数中
@@ -48,3 +48,11 @@ swoole是常驻内存的框架，改代码要重启swoole server才能看到新�
 
 **9、注意避免类和常量的重复定义**
 由于swoole是常驻内存的，加载类/函数定义的文件后不会释放，所以要避免多次require/include相同的类或者常量的定义文件。建议使用require_once/include_once加载文件，否则会发生cannot redeclare function/class 的致命错误。
+
+**10、进程隔离**
+进程隔离也是很多新手经常遇到的问题。修改了全局变量的值，为什么不生效，原因就是全局变量在不同的进程，内存空间是隔离的，所以无效。所以使用swoole开发Server程序需要了解进程隔离问题。
+
+* 不同的进程中PHP变量不是共享，即使是全局变量，在A进程内修改了它的值，在B进程内是无效的
+* 如果需要在不同的Worker进程内共享数据，可以用Redis、MySQL、文件、Swoole\Table、APCu、shmget等工具实现
+* 不同进程的文件句柄是隔离的，所以在A进程创建的Socket连接或打开的文件，在B进程内是无效，即使是将它的fd发送到B进程也是不可用的
+
