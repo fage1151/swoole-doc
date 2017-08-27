@@ -10,11 +10,8 @@
 $serv->set(array(
     'worker_num' => 2,    //开启两个worker进程
 ));
-
-...
-
-
 ```
+
 ## 进程数设置需要考虑以下条件
 
 1、cpu核数
