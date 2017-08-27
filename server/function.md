@@ -436,6 +436,53 @@ sendfile函数调用OS提供的sendfile系统调用，由操作系统直接读�
 $serv->sendfile($fd, __DIR__.'/test.jpg');
 ```
 
+## **swoole_server::sendMessage**
+**功能描述**：获取连接的信息<br>
+**函数原型**：<br>
+~~~
+bool swoole_server->sendMessage(string $message, int $dst_worker_id);
+~~~
+**说明**
+* $message为发送的消息数据内容，没有长度限制，但超过8K时会启动内存临时文件
+* $dst_worker_id为目标进程的ID，范围是0 ~ (worker_num + task_worker_num - 1)
+* 在Task进程内调用sendMessage是阻塞等待的，发送消息完成后返回
+* 在Worker进程内调用sendMessage是异步的，消息会先存到发送队列，可写时向管道发送此消息
+* 在User进程内调用sendMessage底层会自动判断当前的进程是异步还是同步选择不同的发送方式
+
+>sendMessage接口在swoole-1.7.9以上版本可用
+>MacOS/FreeBSD下超过2K就会使用临时文件存储
+>使用sendMessage必须注册onPipeMessage事件回调函数
+
+**实例**
+```php
+$serv = new swoole_server("0.0.0.0", 9501);
+$serv->set(array(
+    'worker_num' => 2,
+    'task_worker_num' => 2,
+));
+$serv->on('pipeMessage', function($serv, $src_worker_id, $data) {
+    echo "#{$serv->worker_id} message from #$src_worker_id: $data\n";
+});
+$serv->on('task', function ($serv, $task_id, $from_id, $data){
+    var_dump($task_id, $from_id, $data);
+});
+$serv->on('finish', function ($serv, $fd, $from_id){
+
+});
+$serv->on('receive', function (swoole_server $serv, $fd, $from_id, $data) {
+    if (trim($data) == 'task')
+    {
+        $serv->task("async task coming");
+    }
+    else
+    {
+        $worker_id = 1 - $serv->worker_id;
+        $serv->sendMessage("hello task process", $worker_id);
+    }
+});
+
+$serv->start();
+```
 ## **swoole_server::connection_info**
 **功能描述**：获取连接的信息<br>
 **函数原型**：<br>
