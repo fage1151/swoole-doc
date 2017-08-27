@@ -480,6 +480,17 @@ $serv->on('receive', function (swoole_server $serv, $fd, $from_id, $data) {
 
 $serv->start();
 ```
+## **swoole_server::exist**
+**功能描述**：检测fd对应的连接是否存在<br>
+**函数原型**：<br>
+~~~
+bool function swoole_server->exist(int $fd)
+~~~
+**返回**：如果fd存在，返回true，连接不存在返回false<br>
+**说明**
+>此接口是基于共享内存计算，没有任何IO操作
+>swoole_server->exist在1.7.18以上版本可用
+
 ## **swoole_server::connection_info**
 **功能描述**：获取连接的信息<br>
 **函数原型**：<br>
