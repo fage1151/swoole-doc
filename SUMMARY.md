@@ -82,3 +82,4 @@
     * [客户端链接失败原因](connect_refuse.md)
     * [如何设置进程数](process_count.md)
     * [如何实现异步任务](async_task.md)
+    * [如何选择swoole三种模式](如何选择swoole三种模式.md)
