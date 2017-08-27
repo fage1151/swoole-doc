@@ -703,7 +703,7 @@ $port = $server->listen('127.0.0.1', 9502, SWOOLE_SOCK_TCP);
 $socket = $port->getSocket();
 ~~~
 
-支持组播
+**支持组播**
 使用socket_set_option设置MCAST_JOIN_GROUP参数可以将Socket加入组播，监听网络组播数据包。
 ~~~
 $server = new swoole_server('0.0.0.0', 9905, SWOOLE_BASE, SWOOLE_SOCK_UDP);
