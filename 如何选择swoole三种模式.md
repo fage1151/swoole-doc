@@ -2,7 +2,7 @@
 ## 一、Base模式（SWOOLE_BASE）
 这种模式就是传统的异步非阻塞Server。在Reactor内直接回调PHP的函数。如果回调函数中有阻塞操作会导致Server退化为同步模式。worker_num参数对与BASE模式仍然有效，swoole会启动多个Reactor进程。
 
-BASE模式下reactor和worker是同一个角色
+>BASE模式下reactor和worker是同一个角色
 
 BASE模式的优点：
 
