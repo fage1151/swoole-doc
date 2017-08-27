@@ -24,7 +24,7 @@ $cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 > swoole_client在unset时会自动调用close方法关闭socket
 > SWOOLE_KEEP长连接模式在1.6.12后可用，长连接的$key参数在1.7.5后增加
 
-## 在php-fpm/apache中使用task功能
+## **在php-fpm/apache中使用task功能**
 AsyncTask是swoole提供一套生产者消费者模型，可以方便地将一个慢速任务投递到队列，由进程池异步地执行。task功能目前只能在swoole_server中使用。1.9.0版本提供了RedisServer框架，可以基于RedisServer和Task实现一个Server程序，在php-fpm或apache中直接调用Redis扩展就可以使用swoole的task功能了。
 
 创建RedisServer
@@ -73,7 +73,7 @@ $redis->connect('127.0.0.1', 9501);
 $taskId = $redis->lpush("myqueue", json_encode(array("hello", "swoole")));
 ~~~
 注意这个RedisServer并不是一台真正的Redis服务器，它只支持LPUSH一个指令。
-## 在php-fpm/apache中使用swoole_client_select实现并行处理
+## **在php-fpm/apache中使用swoole_client_select实现并行处理**
 swoole_client的并行处理中用了select来做IO事件循环。
 
 函数原型：
