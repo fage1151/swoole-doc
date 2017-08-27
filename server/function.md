@@ -230,7 +230,7 @@ public function swoole_server::reload()
 ```php
 $serv->reload();
 ```
-## **swoole_server->stop**
+## **swoole_server::stop**
 **功能描述**：使当前worker进程停止运行，并立即触发onWorkerStop回调函数。<br>
 **函数原型**：<br>
 ```php
@@ -643,7 +643,7 @@ taskwait与task方法作用相同，用于投递一个异步的任务到task进�
 ```php
 $task_id = $serv->taskwait("some data"， 30);
 ```
-## **swoole_server->taskWaitMulti** 
+## **swoole_server::taskWaitMulti** 
 **功能描述**：并发执行多个Task
 **函数原型**：<br>
 
@@ -678,7 +678,7 @@ if (isset($results[2])) {
     echo "任务3的执行结果为{$results[2]}\n";
 }
 ```
-## **swoole_server->taskCo** 
+## **swoole_server::taskCo** 
 **功能描述**：并发执行Task并进行协程调度。仅用于2.0版本。
 **函数原型**：<br>
 ~~~
@@ -771,7 +771,7 @@ if_close_connection参数 在swoole-1.7.4以上版本可用<br>
 ```php
 $serv->heartbeat();
 ```
-## **swoole_server->getSocket**
+## **swoole_server::getSocket**
 **功能描述**：调用此方法可以得到底层的socket句柄，返回的对象为sockets资源句柄。
 
 >此方法需要依赖PHP的sockets扩展，并且编译swoole时需要开启--enable-sockets选项
@@ -822,7 +822,7 @@ $server->start();
 * group 表示组播地址
 * interface 表示网络接口的名称，可以为数字或字符串，如eth0、wlan0
 
-## **swoole_server->protect**
+## **swoole_server::protect**
 **功能描述**：设置客户端连接为保护状态，不被心跳线程切断。
 **函数原型**：
 ~~~
