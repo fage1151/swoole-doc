@@ -20,5 +20,4 @@ $cli = new swoole_client(SWOOLE_TCP | SWOOLE_KEEP);
 * SWOOLE_KEEP只允许用于同步客户端
 
 > swoole_client在unset时会自动调用close方法关闭socket
-> 异步模式unset时会自动关闭socket并从epoll事件轮询中移除
 > SWOOLE_KEEP长连接模式在1.6.12后可用，长连接的$key参数在1.7.5后增加
