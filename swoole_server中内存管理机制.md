@@ -18,6 +18,7 @@ function test()
 $a, $b, $c 都是局部变量，当此函数return时，这3个变量会立即释放，对应的内存会理解释放，打开的IO资源文件句柄会立即关闭。
 $d 也是局部变量，但是return前将它保存到了全局变量$e，所以不会释放。当执行unset($e['client'])时，并且没有任何其他PHP变量仍然在引用$d变量，那么$d 就会被释放。
 ### 全局变量
+
 在PHP中，有3类全局变量。
 
 * 使用global关键词声明的变量
@@ -72,6 +73,6 @@ function test()
     return;
 }
 ~~~
-$client是局部变量，常规情况下return时会销毁。
-但这个$client是异步客户端在执行connect时swoole引擎底层会增加一次引用计数，因此return时并不会销毁。
-该客户端执行onReceive回调函数时进行了close或者服务器端主动关闭连接触发onClose，这时底层会减少引用计数，$client才会被销毁。
+* $client是局部变量，常规情况下return时会销毁。
+* 但这个$client是异步客户端在执行connect时swoole引擎底层会增加一次引用计数，因此return时并不会销毁。
+* 该客户端执行onReceive回调函数时进行了close或者服务器端主动关闭连接触发onClose，这时底层会减少引用计数，$client才会被销毁。
