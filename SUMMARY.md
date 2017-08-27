@@ -21,6 +21,7 @@
     * [附录*server属性](server/04.swoole_server属性列表.md)
     * [附录*server回调函数](server/02.swoole_server事件回调函数.md)
     * [附录*server高级特性](server/05.swoole_server高级特性.md)
+    * [心跳检测](heart_beat.md)
 * [3 Swoole协议](server/05.Swoole的自定义协议功能的使用.md)
     * [3.1 EOF协议](swoole-concise-guide/book/chapter03/eof.md)
     * [3.2 固定包头协议](swoole-concise-guide/book/chapter03/head.md)
