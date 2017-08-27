@@ -44,8 +44,8 @@ function onReceive($serv, $fd, $reactorId, $data)
 * 在事件回调函数中，非局部变量的字符串进行拼接操作是必须小心内存泄漏，如 TestClass::$string .= $data，可能会有内存泄漏，严重时可能发生爆内存。
 
 ## 解决方法
-同步阻塞并且请求响应式无状态的Server程序可以设置max_request，当Worker进程/Task进程结束运行时或达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。
-程序内在onClose或设置定时器及时使用unset清理变量，回收资源
+* 同步阻塞并且请求响应式无状态的Server程序可以设置max_request，当Worker进程/Task进程结束运行时或达到任务上限后进程自动退出。该进程的所有变量/对象/资源均会被释放回收。
+* 程序内在onClose或设置定时器及时使用unset清理变量，回收资源
 ## 异步客户端
 Swoole提供的异步客户端与普通的PHP变量不同，异步客户端在发起connect时底层会增加一次引用计数，在连接close时会减少引用计数。
 
