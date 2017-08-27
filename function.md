@@ -8,7 +8,6 @@ swoole除了网络通信相关的函数外，还提供了一些获取系统信�
 
 **函数原型**：
 ```php
-// 公共函数
 void swoole_set_process_name(string $name);
 ```
 **返回**：无<br>
@@ -42,7 +41,6 @@ sleep(1000);
 **功能描述**：获取swoole扩展的版本号<br>
 **函数原型**：<br>
 ```php
-// 公共函数
 string swoole_version();
 ```
 **返回**：swoole扩展的版本号<br>
@@ -55,7 +53,6 @@ echo swoole_version();
 **功能描述**：将标准的Unix Errno错误码转换成错误信息<br>
 **函数原型**：<br>
 ```php
-// 公共函数
 string swoole_strerror(int $errno);
 ```
 **返回**：转化后的错误信息<br>
@@ -73,7 +70,6 @@ echo swoole_strerror( $errno );
 **功能描述**：获取最近一次系统调用的错误码<br>
 **函数原型**：<br>
 ```php
-// 公共函数
 int swoole_errno();
 ```
 **返回**：最近一次系统调用的错误码<br>
@@ -89,7 +85,6 @@ echo swoole_strerror(swoole_errno());
 **功能描述**：此函数用于获取本机所有网络接口的IP地址<br>
 **函数原型**：<br>
 ```php
-// 公共函数
 array swoole_get_local_ip();
 $result = array("eth0" => "192.168.1.100");
 ```
