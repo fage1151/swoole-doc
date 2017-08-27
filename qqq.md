@@ -9,7 +9,7 @@ php -i|grep php.ini
 ~~~
 php-fpm/apache，查看phpinfo页面找到php.ini的绝对路径。
 
-## 二、查看对应`php.ini`是否有`extension=swoole.so`
+## `二、查看对应php.ini是否有extension=swoole.so`
 ~~~
 cat /usr/local/lib/php.ini | grep swoole.so
 ~~~
