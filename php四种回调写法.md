@@ -18,7 +18,7 @@ $server->on('Request', 'A::Test');
 $server->on('Request', array('A', 'Test'));
 ~~~
 
-## 函数
+## 普通函数
 ~~~
 function my_onRequest($req, $resp)
 {
