@@ -49,7 +49,8 @@ function onReceive($serv, $fd, $reactorId, $data)
 ## 异步客户端
 Swoole提供的异步客户端与普通的PHP变量不同，异步客户端在发起connect时底层会增加一次引用计数，在连接close时会减少引用计数。
 
-包括swoole_client、swoole_mysql、swoole_redis、swoole_http_client
+>包括swoole_client、swoole_mysql、swoole_redis、swoole_http_client
+
 ~~~
 function test()
 {
