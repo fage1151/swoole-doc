@@ -80,3 +80,4 @@
 * [写在后面的话](speak.md)
 * [常见问题](common_problem.md)
     * [客户端链接失败原因](connect_refuse.md)
+    * [如何设置进程数](process_count.md)
