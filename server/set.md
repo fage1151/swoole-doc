@@ -82,6 +82,7 @@ $serv->set(array(
 ```
 
 ## task_worker_num
+
 描述：服务器开启的task进程数。<br>
 说明：设置此参数后，服务器会开启异步task功能。此时可以使用**task**方法投递异步任务。<br>
 
@@ -91,6 +92,10 @@ $serv->set(array(
 ```php
 'task_worker_num' => 8
 ```
+Task进程是同步阻塞的，配置方式与Worker同步模式一致。
+
+* Task进程内不能使用swoole_server->task方法
+* Task进程内不能使用swoole_mysql、swoole_redis、swoole_event等异步IO函数
 
 ## task_max_request
 描述：每个task进程允许处理的最大任务数。<br>
