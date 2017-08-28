@@ -1,6 +1,7 @@
 # 预定义常量
 ## swoole本身
 * SWOOLE_VERSION 当前Swoole的版本号，字符串类型，如1.6.0
+* SWOOLE_CPU_NUM 当前服务器的cpu核数
 ## swoole_server构造函数参数
 * SWOOLE_BASE 使用Base模式，业务代码在Reactor进程中直接执行
 * SWOOLE_PROCESS 使用进程模式，业务代码在Worker进程中执行
