@@ -52,6 +52,7 @@ v2.0.7
 
 * onOpen  
 * Redis\Server->handler
+
 **新增配置**
 
 在Swoole\Server的set方法中增加了一个配置参数max_coro_num，用于配置一个worker进程最多同时处理的协程数目。因为随着worker进程处理的协程数目的增加，其占用的内存也会增加，为了避免超出php的memory_limit限制，请根据实际业务的压测结果设置该值，默认为3000。
