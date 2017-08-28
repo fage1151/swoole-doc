@@ -11,6 +11,7 @@
 * SWOOLE_SOCK_UDP 创建udp socket
 * SWOOLE_SOCK_UDP6 创建udp ipv6 socket
 * SWOOLE_KEEP 在php-fpm/apache中创建长连接
+* SWOOLE_SSL 启用SSL加密
 * SWOOLE_SOCK_SYNC 同步客户端
 * SWOOLE_SOCK_ASYNC 异步客户端
 ## swoole_lock构造函数参数
