@@ -39,7 +39,7 @@ swoole本身已经是一个类似apache/nginx的容器，只要PHP环境OK swool
 
 **7、改代码要重启**
 
-swoole是常驻内存的框架，改代码要重启swoole server才能看到新代码的效果。
+swoole是常驻内存的扩展，加载类/函数定义的文件后不会释放，改代码要重启swoole server才能看到新代码的效果。
 
 **8、支持更高并发**
 
