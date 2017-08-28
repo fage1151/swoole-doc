@@ -43,7 +43,7 @@ swoole是常驻内存的框架，改代码要重启swoole server才能看到新�
 
 **8、支持更高并发**
 
-如果业务并发连接数超过1000同时在线，请务必[优化linux内核](315302).
+如果业务并发连接数超过1000同时在线，请务必[优化linux内核](内核参数调优.md).
 
 **9、注意避免类和常量的重复定义**
 由于swoole是常驻内存的，加载类/函数定义的文件后不会释放，所以要避免多次require/include相同的类或者常量的定义文件。建议使用require_once/include_once加载文件，否则会发生cannot redeclare function/class 的致命错误。
