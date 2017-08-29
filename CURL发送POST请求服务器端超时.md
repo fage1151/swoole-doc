@@ -3,10 +3,10 @@ CURL在发送较大的POST请求时会先发一个100-continue的请求，如果
 
 解决办法是关闭CURL的100-continue
 
-// 创建一个新CURL资源
 ~~~php
+//创建一个新CURL资源
 $ch = curl_init();
-// 设置URL和相应的选项
+//设置URL和相应的选项
 curl_setopt($ch, CURLOPT_URL, "http://127.0.0.1:9501");
 curl_setopt($ch, CURLOPT_HEADER, 0);
 curl_setopt($ch, CURLOPT_POST, 1); //设置为POST方式
