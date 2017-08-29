@@ -30,6 +30,7 @@
     * [3.5 MTQQ协议](swoole-concise-guide/book/chapter03/mtqq.md)
     * [内置http_server](module/http_server.md)
     * [内置websocket_server](module/websocket.md)
+    * [Swoole\Redis\Server](SwooleRedisServer.md)
 * [4 Swoole异步IO](swoole-concise-guide/book/chapter05/chapter05.md)
     * [4.1 AsyncIO](server/08.swoole_async_IO.md)
     * [异步文件系统IO](IO.md)
