@@ -9,7 +9,7 @@ Swoole在2.0开始内置协程(Coroutine)的能力，提供了具备协程能力
 
 * 同时由于swoole是在底层封装了协程，所以对比传统的php层协程框架，开发者不需要使用yield关键词来标识一个协程IO操作，所以不再需要对yield的语义进行深入理解以及对每一级的调用都修改为yield，这极大的提高了开发效率。
 
-启用协程
+**启用协程**
 
 * PHP版本要求：>= 5.5，包括5.5、5.6、7.0、7.1
 * 基于swoole_server或者swoole_http_server进行开发，目前只支持在onRequet, onReceive, onConnect事件回调函数中使用协程。
@@ -20,6 +20,8 @@ swoole提供了四种协程Client：
 * HTTP Client->\Swoole\Coroutine\HTTP\Client  
 * Redis Client->\Swoole\Coroutine\Redis
 * Mysql Client->\Swoole\Coroutine\MySQL
+
+可以满足大部分开发者的需求。对于私有协议，开发者可以使用协程的TCP或者UDP接口去方便的封装。
 
 在协程Server中需要使用协程版Client，可以实现全异步server
 
@@ -35,7 +37,10 @@ $ret = $client->recv();
 $client->close();
 echo $ret;
 ```
+当代码执行到connect()和recv()函数时，swoole会触发进行协程切换，此时swoole可以去处理其他的事件或者接受新的请求。当此client连接成功或者后端服务回包后，swoole server会恢复协程上下文，代码逻辑继续从切换点开始恢复执行。开发者整个过程不需要关心整个切换过程。具体使用可以参考client的文档。
+
 支持协程的回调方法列表 
+
 目前Swoole2 仅有部分事件回调函数底层自动创建了协程，可以调用协程客户端。本节列出了支持协程客户端的回调列表以及实现的版本号。
 
 v2.0.5  
