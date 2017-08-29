@@ -51,6 +51,7 @@
     * [Coroutine::sleep](coroutine/sleep.md)
     * [Swoole\Coroutine\Client](tcp_coroutine.md)
     * [Coroutine\Util](CoroutineUtil.md)
+        * [Swoole\Coroutine::create](SwooleCoroutinecreate.md)
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
