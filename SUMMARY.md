@@ -57,6 +57,7 @@
         * [swoole_async_dns_lookup_coro](swoole_async_dns_lookup_coro.md)
         * [Swoole\Coroutine::getuid](SwooleCoroutinegetuid.md)
         * [getDefer](getDefer.md)
+        * [setDefer](setDefer.md)
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
