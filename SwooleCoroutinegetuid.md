@@ -20,3 +20,10 @@ struct _coro_task
 };
 ~~~
 * 返回当前协程ID，是一个由0增长的长整型。
+~~~
+Swoole\Coroutine::create(function(){
+    echo Swoole\Coroutine::getuid();
+    echo "\n";
+    echo swoole_async_dns_lookup_coro('www.baidu.com');
+});
+~~~
