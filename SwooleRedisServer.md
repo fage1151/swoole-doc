@@ -50,3 +50,12 @@ $server->start();
 redis-cli -h 127.0.0.1 -p 9501 set name rango
 
 ~~~
+**format**
+格式化命令响应数据。
+
+~~~
+function swoole_redis_server::format(int $type, mixed $value = null);
+
+~~~
+* format为静态方法
+* $type表示数据类型，NIL类型不需要传入$value，ERROR和STATUS类型$value可选，INT、STRING、SET、MAP必选
