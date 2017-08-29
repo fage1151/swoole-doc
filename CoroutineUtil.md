@@ -1,6 +1,7 @@
 # Coroutine\Util
 
 **并发调用**
+
 Client并发请求
 
 在协程版本的Client中，实现了多个客户端并发的发包功能。
@@ -29,6 +30,8 @@ redis发包->mysql发包->redis收包->mysql收包
 除了Swoole\Coroutine\Client，其他Client都实现了defer特性，用于声明延迟收包。
 
 因为Swoole\Coroutine\Client的发包和收包方法是分开的，所以就不需要实现defer特性了，而其他Client的发包和收包都是在一个方法中，所以需要一个setDefer()方法声明延迟收包，然后通过recv()方法收包。
+
+* * * * *
 
 **实例**
 协程版本Client并发请求示例代码：
