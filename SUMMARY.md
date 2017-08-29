@@ -53,7 +53,7 @@
         * [Swoole\Coroutine::create](SwooleCoroutinecreate.md)
         * [Swoole\Coroutine::resume](SwooleCoroutineresume.md)
         * [Swoole\Coroutine::suspend](SwooleCoroutinesuspend.md)
-        * [Coroutine::sleep](coroutine/sleep.md)
+        * [Swoole\Coroutine::sleep](coroutine/sleep.md)
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
