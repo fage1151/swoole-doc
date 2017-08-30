@@ -145,7 +145,6 @@ $client->connect('127.0.0.1', 6379, function (swoole_redis $client, $result) {
     $client->subscribe('msg_0');
 });
 ~~~
-
 **回调函数**
 ~~~
 function onReceive(swoole_redis $redis, bool $result);
@@ -163,7 +162,13 @@ $client->get('key', function (swoole_redis $client, $result) {
 });
 
 ~~~
+## **swoole_redis->close**
+关闭Redis连接，不接受任何参数。
 
+~~~
+function swoole_redis->close()
+
+~~~
 异步redis客户端
 ```php
 $client = new Redis;
