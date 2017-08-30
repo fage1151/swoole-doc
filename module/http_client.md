@@ -170,6 +170,13 @@ $cli->post('/post.php', array("a" => '1234', 'b' => '456'), function ($cli) {
     echo $cli->body;
 });
 ```
+## **swoole_http_client->execute**
+更底层的Http请求方法，需要代码中调用setMethod和setData等接口设置请求的方法和数据。
+
+
+~~~
+function swoole_http_client->execute(string $path, callable $callback);
+~~~
 **异步http客户端**
 ```php
 <?php
