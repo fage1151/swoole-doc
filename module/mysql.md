@@ -157,6 +157,16 @@ $db->begin(function( $db, $result) {
     });
 });
 ```
+## **swoole_mysql->rollback**
+回滚事务。
+
+~~~
+function swoole_mysql->rollback(callable $callback);
+
+~~~
+* 必须先调用begin启动事务才能调用rollback否则底层会抛出Swoole\MySQL\Exception异常
+* 异常code为22
+
 **异步mysql客户端**
 ```php
 global $mysql;
