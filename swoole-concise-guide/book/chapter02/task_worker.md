@@ -193,7 +193,8 @@ public function onTask($serv,$task_id,$from_id, $data) {
 [点此查看完整服务端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_server.php)<br>
 [点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
 
->可参考[swoole_framework中的代码](https://github.com/swoole/framework/blob/master/libs/Swoole/Database/MySQL.php)
+>可参考[swoole_framework中的代码](http://git.oschina.net/swoole/swoole_framework/blob/master/libs/Swoole/Async/MySQL.php)
+>redis连接池可参考[swoole_framework中的代码](http://git.oschina.net/swoole/swoole_framework/blob/master/libs/Swoole/Async/Redis.php)
 
 ## **4.Task实战：yii中应用task**
 在YII框架中结合了swoole 的task 做了异步处理。
