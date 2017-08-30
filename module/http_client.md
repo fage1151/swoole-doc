@@ -122,6 +122,34 @@ $cli->post('/dump2.php', array("xxx" => 'abc', 'x2' => 'rango'), function ($cli)
     echo $cli->body;
 });
 ```
+## **swoole_http_client->get**
+发起GET请求，函数原型：
+
+~~~
+function swoole_http_client->get(string $path, callable $callback);
+~~~
+* $path 设置URL路径，如/index.html，注意这里不能传入http://domain
+* $callback 调用成功或失败后回调此函数
+* 默认使用GET方法，可使用setMethod设置新的请求方法
+* Http响应内容会在内存中进行数据拼接。因此如果响应体很大可能会占用大量内存
+
+**使用实例**
+~~~
+$cli = new swoole_http_client('127.0.0.1', 80);
+
+$cli->setHeaders([
+    'Host' => "localhost",
+    "User-Agent" => 'Chrome/49.0.2587.3',
+    'Accept' => 'text/html,application/xhtml+xml,application/xml',
+    'Accept-Encoding' => 'gzip',
+]);
+
+$cli->get('/index.php', function ($cli) {
+    echo "Length: " . strlen($cli->body) . "\n";
+    echo $cli->body;
+});
+
+~~~
 **异步http客户端**
 ```php
 <?php
