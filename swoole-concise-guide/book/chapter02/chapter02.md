@@ -1,8 +1,7 @@
 # 入门
 Swoole虽然是标准的PHP扩展，实际上与普通的扩展不同。普通的扩展只是提供一个库函数。而swoole扩展在运行后会接管PHP的控制权，进入事件循环。当IO事件发生后，swoole会自动回调指定的PHP函数。
 
-新手入门教程：https://github.com/LinkedDestiny/swoole-doc
-Swoole要求使用者必须具备一定的Linux/Unix环境编程基础，《学习Swoole需要掌握哪些基础知识》 本文列出了基础知识清单。
+Swoole要求使用者必须具备一定的Linux/Unix环境编程基础，《[学习Swoole需要掌握哪些基础知识](学习Swoole需要掌握哪些基础知识.md)》 本文列出了基础知识清单。
 
 默认读者已具备如下能力：
 
