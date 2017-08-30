@@ -83,7 +83,7 @@ $serv->set(array(
     'task_worker_num' => 8
 ));
 ```
-即可开启task功能。此外，必须给swoole_server绑定两个回调函数：[onTask](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md#6ontask)和[onFinish](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md#7onfinish)。这两个回调函数分别用于执行Task任务和处理Task任务的返回结果。
+即可开启task功能。此外，必须给swoole_server绑定两个回调函数：[onTask](server/02.swoole_server事件回调函数.md)和[onFinish](server/02.swoole_server事件回调函数.md)。这两个回调函数分别用于执行Task任务和处理Task任务的返回结果。
 
 #### **3.使用Task**
 首先是发起一个Task，代码如下：
@@ -102,7 +102,7 @@ public function onReceive( swoole_server $serv, $fd, $from_id, $data ) {
 ```
 可以看到，发起一个任务时，只需通过swoole_server对象调用task函数即可发起一个任务。swoole内部会将这个请求投递给task_worker，而当前Worker进程会继续执行。
 
-当一个任务发起后，task_worker进程会响应[onTask](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md#6ontask)回调函数，如下：
+当一个任务发起后，task_worker进程会响应[onTask](server/02.swoole_server事件回调函数.md)回调函数，如下：
 ```php
 public function onTask($serv,$task_id,$from_id, $data) {
     echo "This Task {$task_id} from Worker {$from_id}\n";
@@ -116,7 +116,7 @@ public function onTask($serv,$task_id,$from_id, $data) {
     return "Task {$task_id}'s result";
 }
 ```
-这里我用sleep函数和循环模拟了一个长耗时任务。在onTask回调中，我们通过task_id和from_id(也就是worker_id)来区分不同进程投递的不同task。当一个task执行结束后，通过return一个字符串将执行结果返回给Worker进程。Worker进程将通过[onFinish](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md#7onfinish)回调函数接收这个处理结果。
+这里我用sleep函数和循环模拟了一个长耗时任务。在onTask回调中，我们通过task_id和from_id(也就是worker_id)来区分不同进程投递的不同task。当一个task执行结束后，通过return一个字符串将执行结果返回给Worker进程。Worker进程将通过[onFinish](server/02.swoole_server事件回调函数.md)回调函数接收这个处理结果。
 
 下面来看onFinish回调：
 ```php
@@ -125,7 +125,7 @@ public function onFinish($serv,$task_id, $data) {
     echo "Result: {$data}\n";
 }
 ```
-在[onFinish](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/02.%E4%BA%8B%E4%BB%B6%E5%9B%9E%E8%B0%83%E5%87%BD%E6%95%B0.md#7onfinish)回调中，会接收到Task任务的处理结果$data。在这里处理这个返回结果即可。
+在[onFinish](server/02.swoole_server事件回调函数.md)回调中，会接收到Task任务的处理结果$data。在这里处理这个返回结果即可。
 （**Tip:** 可以通过在传递的data中存放fd、buff等数据，来延续投递Task之前的工作）
 
 [点此查看完整示例](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/02/swoole_task_server.php)
@@ -192,6 +192,8 @@ public function onTask($serv,$task_id,$from_id, $data) {
 
 [点此查看完整服务端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_server.php)<br>
 [点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
+
+>可参考[swoole_framework中的代码](https://github.com/swoole/framework/blob/master/libs/Swoole/Database/MySQL.php)
 
 ## **4.Task实战：yii中应用task**
 在YII框架中结合了swoole 的task 做了异步处理。
