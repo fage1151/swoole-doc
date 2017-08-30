@@ -32,12 +32,14 @@ function swoole_redis->__construct(array $options = null);
 ~~~
 * $options 配置选项数组，默认为null
 * 在1.9.15或更高版本可用
+
 **超时控制**
 ~~~
 $options['timeout'] = 1.5;
 
 ~~~
 浮点型，单位为秒，最小粒度为1毫秒。Connect后，在规定的时间内服务器没有完成握手，底层将自动关闭socket，设置连接为失败，触发onConnect事件
+
 **设置密码**
 
 ~~~
@@ -45,12 +47,13 @@ $options['password'] = 'passwd';
 
 ~~~
 必须为字符串类型，可以设置Redis服务器密码，等同于auth指令
-**设置数据库
+
+**设置数据库**
 ~~~
 $options['database'] = 0;
 
 ~~~
-*整型，设置使用的Redis服务器的数据库编号，等同于select指令
+* 整型，设置使用的Redis服务器的数据库编号，等同于select指令
 
 >设置了password或database选项后，连接就绪后底层会自动发送相关指令
 >等待服务器响应成功后才会触发onConnect连接成功事件
@@ -71,6 +74,7 @@ function swoole_redis->on(string $event_name, callable $callback);
 ~~~
 function onClose(swoole_redis $redis);
 ~~~
+
 **onMessage**
 当客户端收到来自服务器的订阅消息时触发onMessage事件。
 
@@ -88,6 +92,7 @@ function swoole_redis->connect(string $host, int $port, callable $callback);
 * $host: Redis服务器的主机IP
 * $port: Redis服务器的端口
 * $callback: 连接成功后回调的函数
+
 **回调函数**
 ~~~
 function onConnect(swoole_redis $redis, bool $result);
