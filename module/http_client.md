@@ -69,6 +69,18 @@ function swoole_http_client->setHeaders(array $headers);
 * $headers必须为键值对应的数组，底层会自动映射为$key: $value格式的Http标准头格式
 * setHeaders设置的Http头在swoole_http_client对象存活期间的每次请求永久有效
 * 重新调用setHeaders会覆盖上一次的设置
+
+## **swoole_http_client->setCookies**
+设置Cookie
+
+~~~
+function swoole_http_client->setCookies(array $cookies);
+
+~~~
+* $cookies 设置COOKIE，必须为键值对应数组
+* 设置COOKIE后在客户端对象存活期间会持续保存
+* 服务器端主动设置的COOKIE会合并到cookies数组中，可读取$client->cookies属性获得当前Http客户端的COOKIE信息
+
 ## **swoole_http_client->setData**
 设置Http请求的包体
 
