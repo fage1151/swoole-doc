@@ -1,5 +1,26 @@
-## http client 
-异步http客户端
+# http client 
+Swoole-1.8.0版本增加了对异步Http/WebSocket客户端的支持。底层是用纯C编写，拥有超高的性能。
+
+**启用Http客户端**
+* 1.8.6版本之前，需要在编译swoole时增加--enable-async-httpclient来开启此功能。
+* swoole_http_client不依赖任何第三方库
+* 支持Http-Chunk、Keep-Alive、form-data
+* Http协议版本为HTTP/1.1
+* gzip压缩格式支持需要依赖zlib库
+
+**构造方法**
+~~~
+function swoole_http_client->__construct(string $ip, int port, bool $ssl = false);
+~~~
+* $ip 目标服务器的IP地址，可使用swoole_async_dns_lookup查询域名对应的IP地址
+* $port 目标服务器的端口，一般http为80，https为443
+* $ssl 是否启用SSL/TLS隧道加密，如果目标服务器是https必须设置$ssl参数为true
+
+**对象属性**
+* $body 请求响应后服务器端返回的内容
+* $statusCode 服务器端返回的Http状态码，如404、200、500等
+
+**异步http客户端**
 ```php
 <?php
 class Http
@@ -77,10 +98,3 @@ $http->onResponse = function ($cli) {
 };
 $http->request($data);
 ```
-### 构造方法
-~~~
-function swoole_http_client->__construct(string $ip, int port, bool $ssl = false);
-~~~
-* $ip 目标服务器的IP地址，可使用swoole_async_dns_lookup查询域名对应的IP地址
-* $port 目标服务器的端口，一般http为80，https为443
-* $ssl 是否启用SSL/TLS隧道加密，如果目标服务器是https必须设置$ssl参数为true
