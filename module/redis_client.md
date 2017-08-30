@@ -1,4 +1,27 @@
-## redis client
+##redis client
+异步Redis客户端 
+Swoole-1.8.0版本增加了对异步Redis客户端的支持，基于redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
+
+## **编译安装hiredis
+使用Redis客户端，需要安装hiredis库。下载hiredis源码后，执行
+
+~~~
+make -j
+sudo make install
+sudo ldconfig
+~~~
+* hiredis下载地址：https://github.com/redis/hiredis/releases
+
+## **启用异步Redis客户端**
+编译swoole是，在configure指令中加入--enable-async-redis
+
+~~~
+./configure --enable-async-redis
+make clean
+make -j
+sudo make install
+~~~
+
 异步redis客户端
 ```php
 $client = new Redis;
