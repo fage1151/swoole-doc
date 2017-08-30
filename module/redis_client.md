@@ -54,6 +54,27 @@ $options['database'] = 0;
 >等待服务器响应成功后才会触发onConnect连接成功事件
 >如果password或database错误，onConnect连接结果为失败
 
+## **swoole_redis->on**
+注册事件回调函数。
+
+~~~
+function swoole_redis->on(string $event_name, callable $callback);
+
+~~~
+目前swoole_redis支持2种事件回调函数。on方法必须在connect前被调用。
+
+**onClose**
+当Redis服务器主动关闭连接或者客户端主动调用close关闭连接时，会触发onClose事件。
+
+~~~
+function onClose(swoole_redis $redis);
+~~~
+**onMessage**
+当客户端收到来自服务器的订阅消息时触发onMessage事件。
+
+~~~
+function onMessage(swoole_redis $redis, array $message);
+~~~
 异步redis客户端
 ```php
 $client = new Redis;
