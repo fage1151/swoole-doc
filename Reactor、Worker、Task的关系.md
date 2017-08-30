@@ -7,11 +7,13 @@
 * 全部为C代码，除Start/Shudown事件回调外，不执行任何PHP代码
 * 将TCP客户端发来的数据缓冲、拼接、拆分成完整的一个请求数据包
 * Reactor以多线程的方式运行
+
 **Worker进程**
 * 接受由Reactor线程投递的请求数据包，并执行PHP回调函数处理数据
 * 生成响应数据并发给Reactor线程，由Reactor线程发送给TCP客户端
 * 可以是异步非阻塞模式，也可以是同步阻塞模式
 * Worker以多进程的方式运行
+
 **Task进程**
 * 接受由Worker进程通过swoole_server->task/taskwait方法投递的任务
 * 处理任务，并将结果数据返回给Worker进程
