@@ -20,6 +20,16 @@ function swoole_http_client->__construct(string $ip, int port, bool $ssl = false
 * $body 请求响应后服务器端返回的内容
 * $statusCode 服务器端返回的Http状态码，如404、200、500等
 
+**swoole_http_client->setData**
+设置Http请求的包体
+
+~~~
+function swoole_http_client->setData(string $data);
+~~~
+* $data 为字符串格式
+* 设置$data后并且未设置$method，底层会自动设置为POST
+* 未设置Http请求包体并且未设置$method，底层会自动设置为GET
+
 **异步http客户端**
 ```php
 <?php
