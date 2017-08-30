@@ -218,7 +218,6 @@ class TestController extends Controller{
         $data = $client->send($data);
     }
 }
-?>
 ```
 
 有个task表是用来记录异步任务的。如果失败重试3次。sql在protected/data/sql.sql里。  
