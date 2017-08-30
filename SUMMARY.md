@@ -112,6 +112,7 @@
     * [Reactor、Worker、Task的关系](Reactor、Worker、Task的关系.md)
     * [Manager进程](Manager进程.md)
     * [Swoole的实现](Swoole的实现.md)
+    * [Reactor线程](Reactor线程.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
