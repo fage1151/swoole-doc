@@ -100,16 +100,17 @@ $serv->on('Request', function($request, $response) {
 $serv->start();
 ~~~
 **onRequest**
-请求到来这时会触发onRequest回调函数，可以得到$request和$response对象
+* 请求到来这时会触发onRequest回调函数，可以得到$request和$response对象
 在onRequest回调函数中，创建了一个Http\Client，并发起一次POST请求
-然后onRequest函数结束并返回
-这时按照正常的PHP函数调用流程，$request和$response对象会被销毁。但在上述程序中，$request和$response对象被使用了use语法，绑定到了匿名函数上，因此这2个对象的引用计数会被加1。onRequest函数返回时就不会真正销毁这2个对象了。
+* 然后onRequest函数结束并返回
+* 这时按照正常的PHP函数调用流程，$request和$response对象会被销毁。但在上述程序中，$request和$response对象被使用了use语法，绑定到了匿名函数上，因此这2个对象的引用计数会被加1。onRequest函数返回时就不会真正销毁这2个对象了。
 
 $cli对象，是在onRequest函数创建的局部变量，按照正常逻辑$cli对象在onRequest函数退出时也应该被销毁。但Swoole底层有一个特殊的逻辑，所有异步客户端对象在发起连接时底层会自动增加一次引用计数，在连接关闭时减少一次引用计数，因此$cli对象也不会销毁，POST请求中的匿名函数对象也不会销毁。
 
 **Http响应**
-创建的$cli对象，接收到来自服务器端的响应，或者连接超时、响应超时，这时会回调指定的匿名函数，调用end向客户端发送响应
-回调函数中调用了$cli->close这时切断连接，$cli的引用计数减一。这时匿名函数退出底层会自动销毁$cli、$request、$response 3个对象
+* 创建的$cli对象，接收到来自服务器端的响应，或者连接超时、响应超时，这时会回调指定的匿名函数，调用end向客户端发送响应
+* 回调函数中调用了$cli->close这时切断连接，$cli的引用计数减一。这时匿名函数退出底层会自动销毁$cli、$request、$response 3个对象
+
 **多层嵌套**
 如果Http\Client的回调函数中调用了其他的异步客户端，如Swoole\Redis，对象会继续传读引用，形成一个异步调用链。当调用链的最后一个对象销毁时会向着调用链头部逐个递减引用计数，最终销毁对象。
 
@@ -136,7 +137,7 @@ $serv->on('Request', function($request, $response) {
 
 $serv->start();
 ~~~
-这里$response和$request对象被POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数引用，因此需要等到这3个函数执行后，引用计数减少为0，才会真正的销毁
-$cli和$redis对象在发起TCP连接时，会被Swoole底层增加引用计数。只有$cli->close()和$redis->close被调用，或者远端服务器关闭连接，触发$cli->onClose和$redis->onClose，$cli和$redis这2个对象的，引用计数才会减少，函数退出时会销毁
-POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数，3个对象依附于$cli和$redis对象，当$cli和$redis对象销毁时，这3个对象也会被销毁
-POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数，匿名函数销毁时通过use语法引用的$response和$request对象也会销毁
+* 这里$response和$request对象被POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数引用，因此需要等到这3个函数执行后，引用计数减少为0，才会真正的销毁
+* $cli和$redis对象在发起TCP连接时，会被Swoole底层增加引用计数。只有$cli->close()和$redis->close被调用，或者远端服务器关闭连接，触发$cli->onClose和$redis->onClose，$cli和$redis这2个对象的，引用计数才会减少，函数退出时会销毁
+* POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数，3个对象依附于$cli和$redis对象，当$cli和$redis对象销毁时，这3个对象也会被销毁
+* POST匿名函数、Redis->connect匿名函数、Redis->get匿名函数，匿名函数销毁时通过use语法引用的$response和$request对象也会销毁
