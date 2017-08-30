@@ -20,7 +20,7 @@ function swoole_http_client->__construct(string $ip, int port, bool $ssl = false
 * $body 请求响应后服务器端返回的内容
 * $statusCode 服务器端返回的Http状态码，如404、200、500等
 
-**swoole_http_client->set**
+## **swoole_http_client->set**
 设置客户端参数，此方法与Swoole\Client->set接收的参数完全一致，可参考 Swoole\Client->set 方法的文档。
 
 除了设置TCPSocket的参数之外，Swoole\Http\Client 额外增加了一些选项，来控制Http和WebSocket客户端。
@@ -60,8 +60,16 @@ $client->setMethod("PUT");
 ~~~
 * $method 必须为符合Http标准的方法名称，如果$method设置错误可能会被Http服务器拒绝请求
 * setMethod仅在当前请求有效，发送请求后会理解清除method设置
+## **swoole_http_client->setHeaders**
+设置Http请求头
 
-**swoole_http_client->setData**
+~~~
+function swoole_http_client->setHeaders(array $headers);
+~~~
+* $headers必须为键值对应的数组，底层会自动映射为$key: $value格式的Http标准头格式
+* setHeaders设置的Http头在swoole_http_client对象存活期间的每次请求永久有效
+* 重新调用setHeaders会覆盖上一次的设置
+## **swoole_http_client->setData**
 设置Http请求的包体
 
 ~~~
