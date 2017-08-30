@@ -20,6 +20,37 @@ function swoole_http_client->__construct(string $ip, int port, bool $ssl = false
 * $body 请求响应后服务器端返回的内容
 * $statusCode 服务器端返回的Http状态码，如404、200、500等
 
+**swoole_http_client->set**
+设置客户端参数，此方法与Swoole\Client->set接收的参数完全一致，可参考 Swoole\Client->set 方法的文档。
+
+除了设置TCPSocket的参数之外，Swoole\Http\Client 额外增加了一些选项，来控制Http和WebSocket客户端。
+
+**超时控制**
+设置timeout选项，启用Http请求超时检测。单位为秒，最小粒度支持毫秒。
+
+~~~
+$http->set(['timeout' => 3.0]);
+~~~
+* 连接超时或被服务器关闭连接，statusCode将设置为-1
+* 在约定的时间内服务器未返回响应，请求超时，statusCode将设置为-2
+* 请求超时后底层会自动切断连接
+* 设置为-1表示永不超时，底层将不会添加超时检测的定时器
+
+>仅在1.9.14或更高版本可用
+
+**keep_alive**
+设置keep_alive选项，启用或关闭Http长连接。
+
+
+~~~
+$http->set(['keep_alive' => false]);
+~~~
+**websocket_mask**
+WebSocket客户端启用或关闭掩码。默认为关闭。启用后会对WebSocket客户端发送的数据使用掩码进行数据转换。
+
+~~~
+$http->set(['websocket_mask' => true]);
+~~~
 **swoole_http_client->setData**
 设置Http请求的包体
 
