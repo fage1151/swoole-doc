@@ -1,6 +1,8 @@
 # mysql client
 Swoole在1.8.6版本提供了全新的异步MySQL客户端，底层自行实现了MySQL的通信协议，无需依赖其他第三方库，如libmysqlclient、mysqlnd、mysqli等。
 
+[TOC]
+
 ## **swoole_mysql->construct**
 创建异步mysql客户端。
 ## **swoole_mysql->on**
@@ -167,6 +169,13 @@ function swoole_mysql->rollback(callable $callback);
 * 必须先调用begin启动事务才能调用rollback否则底层会抛出Swoole\MySQL\Exception异常
 * 异常code为22
 
+## **swoole_mysql->close**
+关闭MySQL连接。
+
+~~~
+function swoole_mysql->close();
+
+~~~
 **异步mysql客户端**
 ```php
 global $mysql;
