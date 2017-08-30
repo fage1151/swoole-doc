@@ -109,6 +109,54 @@ function onSQLReady(swoole_mysql $link, mixed $result);
 * 提交事务：COMMIT
 * 回滚事务：ROLLBACK
 
+## **swoole_mysql->begin**
+启动事务。函数原型：
+
+~~~
+function swoole_mysql->begin(callable $callback);
+
+~~~
+启动一个MySQL事务，事务启动成功会回调指定的函数
+与commit和rollback结合实现MySQL事务处理
+* 同一个MySQL连接对象，同一时间只能启动一个事务
+* 必须等到上一个事务commit或rollback才能继续启动新事务
+* 否则底层会抛出Swoole\MySQL\Exception异常，异常code为21
+
+>事务处理在1.9.15或更高版本可用
+
+**使用实例**
+~~~
+$db->begin(function( $db, $result) {
+    $db->query("update userinfo set level = 22 where id = 1", function($db, $result) {
+        $db->rollback(function($db, $result) {
+            echo "commit ok\n";
+        });
+    });
+});
+~~~
+## **swoole_mysql->commit**
+提交事务。
+
+~~~
+function swoole_mysql->commit(callable $callback);
+
+~~~
+* 提交事务，当服务器返回响应时回调此函数
+* 必须先调用begin启动事务才能调用commit否则底层会抛出Swoole\MySQL\Exception异常
+* 异常code为22
+
+>在1.9.15或更高版本可用
+
+**使用实例**
+```
+$db->begin(function( $db, $result) {
+    $db->query("update userinfo set level = 22 where id = 1", function($db, $result) {
+        $db->commit(function($db, $result){
+            echo "commit ok\n";
+        });
+    });
+});
+```
 **异步mysql客户端**
 ```php
 global $mysql;
