@@ -7,7 +7,9 @@ function swoole_http_client->upgrade(string $path, callable $callback);
 * $path URL路径
 * $callback 握手成功或失败后回调此函数
 * 使用Upgrade方法必须设置onMessage回调函数
-使用实例
+
+**使用实例**
+~~~
 $cli = new swoole_http_client('127.0.0.1', 9501);
 
 $cli->on('message', function ($_cli, $frame) {
@@ -18,11 +20,15 @@ $cli->upgrade('/', function ($cli) {
     echo $cli->body;
     $cli->push("hello world");
 });
-onMessage回调
+~~~
+**onMessage回调**
+~~~
 function onMessage(swoole_http_client $client, swoole_websocket_frame $frame);
-$client 客户端对象，可调用push方法向服务器发送数据
-$frame WebSocket数据帧，可参考 swoole_websocket_server->onMessage
-异步websocket客户端
+~~~
+* $client 客户端对象，可调用push方法向服务器发送数据
+* $frame WebSocket数据帧，可参考 swoole_websocket_server->onMessage
+
+**异步websocket客户端**
 ```php
 class Ws
 {
