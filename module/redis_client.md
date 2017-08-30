@@ -2,7 +2,7 @@
 异步Redis客户端 
 Swoole-1.8.0版本增加了对异步Redis客户端的支持，基于redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
 
-## **编译安装hiredis
+## **编译安装hiredis**
 使用Redis客户端，需要安装hiredis库。下载hiredis源码后，执行
 
 ~~~
