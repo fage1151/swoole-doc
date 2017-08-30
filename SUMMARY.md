@@ -108,6 +108,7 @@
     * [守护进程程序常用数据结构](守护进程程序常用数据结构.md)
     * [swoole生命周期](swoole生命周期.md)
     * [swoole_server中内存管理机制](swoole_server中内存管理机制.md)
+    * [使用jemalloc优化swoole内存分配性能](使用jemalloc优化swoole内存分配性能.md)
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
