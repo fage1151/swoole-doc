@@ -9,6 +9,8 @@ swoole_client提供了tcp/udp socket的客户端的封装代码，使用时仅�
 
 除了普通的同步阻塞+select的使用方法外，swoole_client还支持异步非阻塞回调。
 
+[TOC]
+
 ## 同步阻塞客户端
 
 ```php
