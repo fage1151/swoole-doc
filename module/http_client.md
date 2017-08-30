@@ -90,7 +90,38 @@ function swoole_http_client->setData(string $data);
 * $data 为字符串格式
 * 设置$data后并且未设置$method，底层会自动设置为POST
 * 未设置Http请求包体并且未设置$method，底层会自动设置为GET
+## **swoole_http_client->addFile**
+添加POST文件。
 
+
+~~~
+function swoole_http_client->addFile(string $path, string $name, string $filename = null, string $mimeType = null, int $offset = 0, int $length)
+
+~~~
+* $path 文件的路径，必选参数，不能为空文件或者不存在的文件
+* $name 表单的名称，必选参数，FILES参数中的key
+* $filename 文件名称，可选参数，默认为basename($path)
+* $mimeType 文件的MIME格式，可选参数，底层会根据文件的扩展名自动推断
+* $offset 上传文件的偏移量，可以指定从文件的中间部分开始传输数据。此特性可用于支持断点续传。
+* $length 发送数据的尺寸，默认为整个文件的尺寸
+
+使用addFile会自动将POST的Content-Type将变更为form-data。addFile底层基于sendfile，可支持异步发送超大文件。
+
+>addFile在1.8.9或更高版本可用
+>$offset, $length 参数在1.9.11或更高版本可用
+
+**使用示例**
+```
+<?php
+$cli = new swoole_http_client('127.0.0.1', 80);
+//post request
+$cli->setHeaders(['User-Agent' => "swoole"]);
+$cli->addFile(__DIR__.'/post.data', 'post');
+$cli->addFile(dirname(__DIR__).'/test.jpg', 'debug');
+$cli->post('/dump2.php', array("xxx" => 'abc', 'x2' => 'rango'), function ($cli) {
+    echo $cli->body;
+});
+```
 **异步http客户端**
 ```php
 <?php
