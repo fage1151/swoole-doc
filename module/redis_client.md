@@ -117,14 +117,17 @@ function swoole_redis->__call(string $command, array $params);
 ~~~
 * $command，必须为合法的Redis指令，详细参见Redis指令列表
 * $params的最后一个参数必须为可执行的函数，其他参数必须为字符串
-订阅/发布消息
+**订阅/发布消息**
+
 Redis服务器除了作为内存存储之外，还可以作为一个消息通道服务器。SwooleRedis客户端也支持了Redis的订阅/发布消息指令。
 
 与普通的存储指令不同，消息订阅/发布指令不是请求响应式的。
 
-订阅/发布指令没有回调函数，不需要在最后一个参数传入callback
-使用订阅/发布消息命名，必须设置onMessage事件回调函数
-客户端发出了subscribe命令后，只能执行subscribe， psubscribe，unsubscribe，punsubscribe这4条命令
+* 订阅/发布指令没有回调函数，不需要在最后一个参数传入callback
+* 使用订阅/发布消息命名，必须设置onMessage事件回调函数
+* 客户端发出了subscribe命令后，只能执行subscribe， psubscribe，unsubscribe，punsubscribe这4条命令
+~~~
+
 $client = new swoole_redis;
 $client->on('message', function (swoole_redis $client, $result) {
     var_dump($result);
@@ -141,16 +144,26 @@ $client->connect('127.0.0.1', 6379, function (swoole_redis $client, $result) {
     echo "connect\n";
     $client->subscribe('msg_0');
 });
-回调函数
+~~~
+
+**回调函数**
+~~~
 function onReceive(swoole_redis $redis, bool $result);
-$redis: redis连接对象
-执行失败，$result为false, 可以读取$redis->errCode获得错误码，读取$redis->errMsg获得错误消息
-执行成功，返回数据结果，可能是字符串、数组或true
-使用示例
+
+~~~
+* $redis: redis连接对象
+* 执行失败，$result为false, 可以读取$redis->errCode获得错误码，读取$redis->errMsg获得错误消息
+* 执行成功，返回数据结果，可能是字符串、数组或true
+
+**使用示例**
+
+~~~
 $client->get('key', function (swoole_redis $client, $result) {
     var_dump($result);
 });
+
 ~~~
+
 异步redis客户端
 ```php
 $client = new Redis;
