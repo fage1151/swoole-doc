@@ -1,5 +1,7 @@
 ##redis client
 异步Redis客户端 
+
+[TOC]
 Swoole-1.8.0版本增加了对异步Redis客户端的支持，基于redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
 
 ## **编译安装hiredis**
@@ -188,10 +190,3 @@ $client->set('key', 'swoole', function (Redis $client, $result) {
     });
 });
 ```
-### 构造函数
-~~~
-function swoole_redis->__construct(array $options = null);
-~~~
-* 超时控制 $options['timeout'] = 1.5,浮点型，单位为秒，最小粒度为1毫秒
-* 设置密码 $options['password'] = 'passwd'，等同于auth指令
-* 设置数据库 $options['database'] = 0，等同于select指令
