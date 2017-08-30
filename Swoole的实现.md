@@ -18,6 +18,7 @@ swoole使用底层的socket系统调用。参见 sys/socket.h
 **多进程/多线程**
 * 多进程使用fork()系统调用
 * 多线程使用pthread线程库
+
 **EventFd**
 Swoole中使用了eventfd作为线程/进程间消息通知的机制。
 
