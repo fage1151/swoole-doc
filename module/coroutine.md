@@ -72,10 +72,6 @@ v2.0.7
 * 请勿在以下场景中触发协程切换：
     * 析构函数
     * 魔术方法__call()
-* gcc 4.4下如果在编译swoole的时候（即make阶段），出现
-```
-gcc warning： dereferencing pointer ‘v.327’ does break strict-aliasing rules、 dereferencing type-punned pointer will break strict-aliasing rules
-``` 
-请手动编辑Makefile，将CFLAGS = -Wall -pthread -g -O2替换为CFLAGS = -Wall -pthread -g -O2 -fno-strict-aliasing，然后重新编译make clean;make;make install
+* gcc 4.4下如果在编译swoole的时候（即make阶段），出现```gcc warning： dereferencing pointer ‘v.327’ does break strict-aliasing rules、 dereferencing type-punned pointer will break strict-aliasing rules``` 请手动编辑Makefile，将CFLAGS = -Wall -pthread -g -O2替换为CFLAGS = -Wall -pthread -g -O2 -fno-strict-aliasing，然后重新编译make clean;make;make install
 * **`与xdebug、xhprof等zend扩展不兼容`**，例如不能使用xhprof对协程server进行性能分析采样。
 * 原生的call_user_func和call_user_func_array中无法使用协程client，请使用\Swoole\Coroutine::call_user_func和\Swoole\Coroutine::call_user_func_array代替,在PHP7中如果无法保证在编译时反射调用的类是编译器已知的，请统一使用协程版反射调用
