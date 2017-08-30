@@ -16,8 +16,8 @@ swoole使用底层的socket系统调用。参见 sys/socket.h
 >有很多人使用strace -p去查看swoole主进程只能看到poll系统调用。正确的查看方法是strace -f -p
 
 **多进程/多线程**
-多进程使用fork()系统调用
-多线程使用pthread线程库
+* 多进程使用fork()系统调用
+* 多线程使用pthread线程库
 **EventFd**
 Swoole中使用了eventfd作为线程/进程间消息通知的机制。
 
