@@ -51,6 +51,16 @@ WebSocket客户端启用或关闭掩码。默认为关闭。启用后会对WebSo
 ~~~
 $http->set(['websocket_mask' => true]);
 ~~~
+## **swoole_http_client->setMethod**
+设置Http请求方法
+
+~~~
+function swoole_http_client->setMethod(string $method);
+$client->setMethod("PUT");
+~~~
+* $method 必须为符合Http标准的方法名称，如果$method设置错误可能会被Http服务器拒绝请求
+* setMethod仅在当前请求有效，发送请求后会理解清除method设置
+
 **swoole_http_client->setData**
 设置Http请求的包体
 
