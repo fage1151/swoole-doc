@@ -46,7 +46,7 @@ swoole是常驻内存的扩展，加载类/函数定义的文件后不会释放�
 如果业务并发连接数超过1000同时在线，请务必[优化linux内核](内核参数调优.md).
 
 **9、注意避免类和常量的重复定义**
-由于swoole是常驻内存的，加载类/函数定义的文件后不会释放，所以要避免多次require/include相同的类或者常量的定义文件。建议使用require_once/include_once加载文件，否则会发生cannot redeclare function/class 的致命错误。
+由于swoole是常驻内存的，加载类/函数定义的文件后不会释放，所以要避免多次require/include相同的类或者常量的定义文件。建议使用require_once/include_once加载文件，否则会发生```cannot redeclare function/class``` 的致命错误。
 
 **10、进程隔离**
 进程隔离也是很多新手经常遇到的问题。修改了全局变量的值，为什么不生效，原因就是全局变量在不同的进程，内存空间是隔离的，所以无效。所以使用swoole开发Server程序需要了解进程隔离问题。
