@@ -116,7 +116,7 @@ public function onFinish($serv,$task_id, $data) {
 
 [点此查看完整示例](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/02/swoole_task_server.php)
 
-##**3.Task进阶：MySQL连接池**
+## **3.Task进阶：MySQL连接池**
 上一章中我简单讲解了如何开启和使用Task功能。这一节，我将提供一个Task的高级用法。<br>
 
 在PHP中，访问MySQL数据库往往是性能提升的瓶颈。而MySQL连接池我想大家都不陌生，这是一个很好的提升数据库访问性能的方式。传统的MySQL连接池，是预先申请一定数量的连接，每一个新的请求都会占用其中一个连接，请求结束后再将连接放回池中，如果所有连接都被占用，新来的连接则会进入等待状态。<br>
@@ -179,7 +179,7 @@ public function onTask($serv,$task_id,$from_id, $data) {
 [点此查看完整服务端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_server.php)<br>
 [点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
 
-##**4.Task实战：yii中应用task**
+## **4.Task实战：yii中应用task**
 在YII框架中结合了swoole 的task 做了异步处理。
 本例中 主要用到
 1、protected/commands/ServerCommand.php 用来做server。
