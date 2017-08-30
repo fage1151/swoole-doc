@@ -225,7 +225,7 @@ $cli->download('/video.avi', $file, function ($cli) {
     var_dump($cli->downloadFile);
 }, $offset);
 ```
-#3 **swoole_http_client->close**
+## **swoole_http_client->close**
 关闭连接，函数原型为：
 
 ~~~
