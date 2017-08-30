@@ -136,7 +136,7 @@ public function onFinish($serv,$task_id, $data) {
 在PHP中，访问MySQL数据库往往是性能提升的瓶颈。而MySQL连接池我想大家都不陌生，这是一个很好的提升数据库访问性能的方式。传统的MySQL连接池，是预先申请一定数量的连接，每一个新的请求都会占用其中一个连接，请求结束后再将连接放回池中，如果所有连接都被占用，新来的连接则会进入等待状态。<br>
 知道了MySQL连接池的实现原理，那我们来看如何使用Swoole实现一个连接池。<br>
 首先，Swoole允许开启一定量的Task Worker进程，我们可以让每个进程都拥有一个MySQL连接，并保持这个连接，这样，我们就创建了一个连接池。<br>
-其次，设置swoole的[dispatch_mode](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/01.%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9.md#5dispatch_mode)为抢占模式(主进程会根据Worker的忙闲状态选择投递，只会投递给处于闲置状态的Worker)。这样，每个task都会被投递给闲置的Task Worker。这样，我们保证了每个新的task都会被闲置的Task Worker处理，如果全部Task Worker都被占用，则会进入等待队列。<br>
+其次，设置swoole的[dispatch_mode](server/set.md)为抢占模式(主进程会根据Worker的忙闲状态选择投递，只会投递给处于闲置状态的Worker)。这样，每个task都会被投递给闲置的Task Worker。这样，我们保证了每个新的task都会被闲置的Task Worker处理，如果全部Task Worker都被占用，则会进入等待队列。<br>
 
 下面直接上关键代码：<br>
 ```php
