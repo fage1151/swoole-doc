@@ -177,6 +177,52 @@ $cli->post('/post.php', array("a" => '1234', 'b' => '456'), function ($cli) {
 ~~~
 function swoole_http_client->execute(string $path, callable $callback);
 ~~~
+## **swoole_http_client->download**
+通过Http下载文件。download与get方法的不同是download收到数据后会写入到磁盘，而不是在内存中对Http Body进行拼接。因此download仅使用小量内存，就可以完成超大文件的下载。 函数原型：
+
+~~~
+function swoole_http_client->download(string $path, string $filename, callable $callback, int $offset = 0);
+
+~~~
+* $path URL路径
+* $filename 指定下载内容写入的文件路径，会自动写入到downloadFile属性
+* $callback 下载成功后的回调函数
+* $offset 指定写入文件的偏移量，此选项可用于支持断点续传，可配合Http头Range:bytes=$offset-实现
+* $offset为0时若文件已存在，底层会自动清空此文件
+* 执行成功返回true
+* 打开文件失败或feek失败返回false
+**使用示例**
+```
+$cli = new swoole_http_client('127.0.0.1', 80);
+
+$cli->setHeaders([
+    'Host' => "localhost",
+    "User-Agent" => 'Chrome/49.0.2587.3',
+    'Accept' => '*',
+    'Accept-Encoding' => 'gzip',
+]);
+
+$cli->download('/video.avi', __DIR__.'/video.avi', function ($cli) {
+    var_dump($cli->downloadFile);
+});
+```
+**断点续传**
+```
+$cli = new swoole_http_client('127.0.0.1', 80);
+$file = __DIR__.'/video.avi';
+$offset = filesize($file);
+$cli->setHeaders([
+    'Host' => "localhost",
+    "User-Agent" => 'Chrome/49.0.2587.3',
+    'Accept' => '*',
+    'Accept-Encoding' => 'gzip',
+    'Range' => "bytes=$offset-",
+]);
+
+$cli->download('/video.avi', $file, function ($cli) {
+    var_dump($cli->downloadFile);
+}, $offset);
+```
 **异步http客户端**
 ```php
 <?php
