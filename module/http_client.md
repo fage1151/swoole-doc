@@ -1,6 +1,8 @@
 # http client 
 Swoole-1.8.0版本增加了对异步Http/WebSocket客户端的支持。底层是用纯C编写，拥有超高的性能。
 
+[TOC]
+
 **启用Http客户端**
 * 1.8.6版本之前，需要在编译swoole时增加--enable-async-httpclient来开启此功能。
 * swoole_http_client不依赖任何第三方库
@@ -8,7 +10,7 @@ Swoole-1.8.0版本增加了对异步Http/WebSocket客户端的支持。底层是
 * Http协议版本为HTTP/1.1
 * gzip压缩格式支持需要依赖zlib库
 
-**构造方法**
+## **构造方法**
 ~~~
 function swoole_http_client->__construct(string $ip, int port, bool $ssl = false);
 ~~~
