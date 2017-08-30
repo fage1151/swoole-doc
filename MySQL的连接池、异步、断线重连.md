@@ -13,7 +13,7 @@ MySQL短连接每次请求操作数据库都需要建立与MySQL服务器建立T
 * PHP程序遇到空闲期时长时间没有MySQL查询，MySQL-Server也会切断连接回收资源
 * 其他情况，在MySQL服务器中执行kill process杀掉某个连接，MySQL服务器重启
 
-这时PHP程序中的MySQL连接就失效了。如果仍然执行mysql_query，就会报一个“MySQL server has gone away”的错误。程序处理不到就直接遇到致命错误并退出了。所以PHP程序中需要断线重连。
+这时PHP程序中的MySQL连接就失效了。如果仍然执行mysql_query，就会报一个“`MySQL server has gone away`”的错误。程序处理不到就直接遇到致命错误并退出了。所以PHP程序中需要断线重连。
 
 有很多人提出了mysql_ping的方案，每次mysql_query进行连接检测或者定时连接检测。这个方案不是最好的。原因是
 
