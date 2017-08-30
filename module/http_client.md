@@ -150,6 +150,26 @@ $cli->get('/index.php', function ($cli) {
 });
 
 ~~~
+## **swoole_http_client->post**
+发起POST请求，函数原型：
+
+~~~
+function swoole_http_client->post(string $path, mixed $data, callable $callback);
+
+~~~
+* $path 设置URL路径，如/index.html，注意这里不能传入http://domain
+* $data 请求的包体数据，如果$data为数组底层自动会打包为x-www-form-urlencoded格式的POST内容，并设置Content-Type为application/x-www-form-urlencoded
+* $callback 调用成功或失败后回调此函数
+* 默认使用POST方法，可使用setMethod设置新的方法
+
+**使用实例**
+```
+$cli = new swoole_http_client('127.0.0.1', 80); 
+$cli->post('/post.php', array("a" => '1234', 'b' => '456'), function ($cli) {
+    echo "Length: " . strlen($cli->body) . "\n";
+    echo $cli->body;
+});
+```
 **异步http客户端**
 ```php
 <?php
