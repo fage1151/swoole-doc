@@ -13,7 +13,7 @@ cd jemalloc
 make -j 4
 ~~~
 **使用jemalloc**
-编译Swoole时增加--with-jemalloc-dir=/path/to/jemalloc
+编译Swoole时增加`--with-jemalloc-dir=/path/to/jemalloc`
 
 ~~~
 phpize
