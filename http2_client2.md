@@ -6,6 +6,49 @@ Http2.0客户端与Http1.1的最大差别是2.0支持了Stream并发机制，可
 
 **需要依赖nghttp2库，编译Swoole扩展时需要设置--enable-http2、--enable-openssl或--with-openssl-dir。**
 
+## **swoole_http2_client->__construct**
+构造方法，与swoole_http_client的构造方法参数完全一致，共接受3个参数。
+
+~~~
+function swoole_http2_client->__construct($host, $port, $ssl = false)
+
+~~~
+* $host 服务器的地址，如果未设置host头，将自动使用$host参数作为默认的host头
+* $port 端口号，SSL一般为443，非SSL一般为80
+* $ssl 是否启用SSL加密，需要依赖openssl
+
+## **swoole_http2_client->get**
+发起GET请求，函数原型：
+
+~~~
+function swoole_http_client->get(string $path, callable $callback);
+
+~~~
+* $path 设置URL路径，如/index.html，注意这里不能传入http://domain
+* $callback 调用成功或失败后回调此函数
+* Http响应内容会在内存中进行数据拼接。因此如果响应体很大可能会占用大量内存
+
+**回调函数**
+
+与Http1.1客户端事件回调函数不同，Http2.0回调函数中的参数为Swoole\Http2\Response对象。而不是Client本身。可使用use语法将Client对象传递给匿名函数。
+
+~~~
+function callback(Swoole\Http2\Response $resp)
+{
+    var_dump($resp->cookie);
+    var_dump($resp->header);
+    var_dump($resp->server);
+    var_dump($resp->body);
+    var_dump($resp->statusCode);
+}
+~~~
+
+* cookie 服务器设置的COOKIE信息
+* header 服务器发送的Header信息
+* server 底层连接与协议相关的信息
+* body 服务器发送的响应包体
+* statusCode 服务器发送的Http状态码，如200、502等
+
 ```php
 <?php
 $array = array(
