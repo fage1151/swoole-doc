@@ -77,7 +77,7 @@ $serv->task($data, -1, function (swoole_server $serv, $task_id, $data) {
 Swoole的业务逻辑部分是同步阻塞运行的，如果遇到一些耗时较大的操作，例如访问数据库、广播消息等，就会影响服务器的响应速度。因此Swoole提供了Task功能，将这些耗时操作放到另外的进程去处理，当前进程继续执行后面的逻辑。
 
 #### **2.开启Task功能**
-开启Task功能只需要在swoole_server的配置项中添加[task_worker_num](https://github.com/LinkedDestiny/swoole-doc/blob/master/doc/01.%E9%85%8D%E7%BD%AE%E9%80%89%E9%A1%B9.md#6task_worker_num)一项即可，如下：
+开启Task功能只需要在swoole_server的配置项中添加[task_worker_num](server/set.md)一项即可，如下：
 ```php
 $serv->set(array(
     'task_worker_num' => 8
