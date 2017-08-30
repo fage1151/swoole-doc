@@ -223,6 +223,17 @@ $cli->download('/video.avi', $file, function ($cli) {
     var_dump($cli->downloadFile);
 }, $offset);
 ```
+#3 **swoole_http_client->close**
+关闭连接，函数原型为：
+
+~~~
+function swoole_http_client->close() : bool
+
+~~~
+* 操作成功返回 true
+
+>swoole_http_client与普通的swoole_client不同，close后如果再次请求get、post等方法时，底层会重新连接服务器
+
 **异步http客户端**
 ```php
 <?php
