@@ -1,5 +1,5 @@
 # ws client
-发起WebSocket握手请求，并将连接升级为WebSocket。
+swoole_http_client调用upgrade,发起WebSocket握手请求，并将连接升级为WebSocket。
 
 ~~~
 function swoole_http_client->upgrade(string $path, callable $callback);
