@@ -1,7 +1,7 @@
 # redis client
 异步Redis客户端 
 
-[TOC]
+[TOC=2,3]
 
 Swoole-1.8.0版本增加了对异步Redis客户端的支持，基于redis官方提供的hiredis库实现。Swoole提供了__call魔术方法，来映射绝大部分Redis指令。
 
