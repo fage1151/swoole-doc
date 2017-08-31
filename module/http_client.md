@@ -1,7 +1,7 @@
 # http client 
 Swoole-1.8.0版本增加了对异步Http/WebSocket客户端的支持。底层是用纯C编写，拥有超高的性能。
 
-[TOC]
+[TOC=2,3]
 
 **启用Http客户端**
 * 1.8.6版本之前，需要在编译swoole时增加--enable-async-httpclient来开启此功能。
