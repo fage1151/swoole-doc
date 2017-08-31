@@ -1,7 +1,7 @@
 # mysql client
 Swoole在1.8.6版本提供了全新的异步MySQL客户端，底层自行实现了MySQL的通信协议，无需依赖其他第三方库，如libmysqlclient、mysqlnd、mysqli等。
 
-[TOC]
+[TOC=2,3]
 
 ## **swoole_mysql->construct**
 创建异步mysql客户端。
