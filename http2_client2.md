@@ -6,7 +6,7 @@ Http2.0客户端与Http1.1的最大差别是2.0支持了Stream并发机制，可
 
 **需要依赖nghttp2库，编译Swoole扩展时需要设置--enable-http2、--enable-openssl或--with-openssl-dir。**
 
-[TOC]
+[TOC=2,3]
 
 ## **swoole_http2_client->__construct**
 构造方法，与swoole_http_client的构造方法参数完全一致，共接受3个参数。
