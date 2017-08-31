@@ -1,7 +1,7 @@
 # swoole_server函数列表
 ---
 
-[TOC]
+[TOC=2,3]
 
 ## **swoole_server::__construct**
 **功能描述**：创建一个swoole_server资源对象
