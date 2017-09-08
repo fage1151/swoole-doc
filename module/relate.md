@@ -49,6 +49,7 @@
 ## 分布式
 * [SwooleDistributed](https://github.com/tmtbe/SwooleDistributed)  swoole 分布式全栈框架框架  
 * [swoole-task](https://github.com/luxixing/swoole-task) 是基于PHP swoole扩展开发的一个异步多进程任务处理框架，服务端和客户端通过http协议进行交互。它适用于任务需要花费较长时间处理，而客户端不必关注任务执行结果的场景.比如数据清洗统计类的工作，报表生成类任务  
+* [php-msf](https://github.com/pinguo/php-msf) 基于Swoole的工程级企业微服务框架，承载Camera360亿级用户访问量，稳定，高性能，简单。Yield协程，无内存泄露（对象池），内置请求上下文，请求链，Redis连接池、MySQL连接池、Redis集群中间件，RPC等
 * [swoole-jobs](https://github.com/kcloze/swoole-jobs) 基于swoole的job调度组件
 * [DFS](https://github.com/qieangel2013/dfs) DFS 分布式文件服务器
 * [DoraRPC](https://github.com/xcl3721/Dora-RPC) Dora RPC 是一款基础于Swoole定长包头通讯协议的最精简的RPC, 用于复杂项目前后端分离，分离后项目都通过API工作可更好的跟踪、升级、维护及管理。
