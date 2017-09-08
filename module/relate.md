@@ -46,6 +46,7 @@
 * [statistics](https://github.com/smalleyes/statistics) 一个运用php与swoole实现的统计监控系统
 * [Sworm](https://github.com/heikezy/Sworm) 基于Swoole的异步MySQL数据库ORM框架
 * [real-time-pad](https://github.com/zhaohehe/real-time-pad)  A really-real time collaborative word processor     
+* [mysql-proxy](https://github.com/swoole/mysql-proxy) PHP程序员也能参与的MySQL中间件项目
 ## 分布式
 * [SwooleDistributed](https://github.com/tmtbe/SwooleDistributed)  swoole 分布式全栈框架框架  
 * [swoole-task](https://github.com/luxixing/swoole-task) 是基于PHP swoole扩展开发的一个异步多进程任务处理框架，服务端和客户端通过http协议进行交互。它适用于任务需要花费较长时间处理，而客户端不必关注任务执行结果的场景.比如数据清洗统计类的工作，报表生成类任务  

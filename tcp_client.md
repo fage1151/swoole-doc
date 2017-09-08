@@ -9,7 +9,7 @@ swoole_client提供了tcp/udp socket的客户端的封装代码，使用时仅�
 
 除了普通的同步阻塞+select的使用方法外，swoole_client还支持异步非阻塞回调。
 
-[TOC]
+[TOC=2,3]
 
 ## 同步阻塞客户端
 
@@ -128,10 +128,10 @@ var_dump($ret);
 var_dump($process->read());
 ~~~
 
-### 配置选项 
+## 配置选项 
 Swoole\Client和Swoole\Http\Client可以使用set方法设置一些选项，启用某些特性。
 
-结束符检测
+### 结束符检测
 ~~~
 $client->set(array(
     'open_eof_check' => true,
@@ -139,7 +139,7 @@ $client->set(array(
     'package_max_length' => 1024 * 1024 * 2,
 ))
 ~~~
-长度检测
+### 长度检测
 ~~~
 $client->set(array(
     'open_length_check'     => 1,
@@ -149,7 +149,7 @@ $client->set(array(
     'package_max_length'    => 2000000,  //协议最大长度
 ));
 ~~~
-Socket缓存区尺寸
+### Socket缓存区尺寸
 ~~~
 $client->set(array(
     'socket_buffer_size'     => 1024*1024*2, //2M缓存区
@@ -162,7 +162,7 @@ $client->set(array(
     'open_tcp_nodelay'     =>  true,
 ));
 ~~~
-SSL/TLS证书
+### SSL/TLS证书
 ~~~
 $client->set(array(
     'ssl_cert_file'     =>  $your_ssl_cert_file_path,
@@ -172,7 +172,7 @@ $client->set(array(
 swoole-1.7.21或更高版本可用
 
 
-绑定IP和端口
+### 绑定IP和端口
 机器有多个网卡的情况下，设置bind_address参数可以强制客户端Socket绑定某个网络地址。
 设置bind_port可以使客户端Socket使用固定的端口连接到外网服务器
 ~~~
@@ -184,7 +184,7 @@ $client->set(array(
 swoole-1.8.5或更高版本可用
 
 
-Socks5代理设置
+### Socks5代理设置
 ~~~
 $client->set(array(
     'socks5_host'     =>  '192.168.1.100',
@@ -195,7 +195,7 @@ $client->set(array(
 ~~~
 
 socks5_username、socks5_password为可选参数
-Http代理设置
+### Http代理设置
 
 ~~~
 $client->set(array(

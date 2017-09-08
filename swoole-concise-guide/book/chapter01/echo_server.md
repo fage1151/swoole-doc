@@ -2,7 +2,7 @@
 
 ---
 
-[TOC]
+[TOC=2,3]
 
 所有讲解网络通信编程的书籍都会最先讲解如何编写一个Echo服务器，本书也不例外。本章将讲解如何快速编写一个基于Swoole扩展的Echo服务器。
 Almost all network programming books start with teaching how to build an Echo Server. Well, we will do the same for this guide. In this chapter, we will learn how to quickly build an Echo Server based on Swoole!

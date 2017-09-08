@@ -1,7 +1,7 @@
 # Task Worker
 
 ---
-[TOC]
+[TOC=2,4]
 <!-- toc -->
 
 ## 简介

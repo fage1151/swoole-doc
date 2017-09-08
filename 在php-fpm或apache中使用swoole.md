@@ -1,6 +1,7 @@
 # 在php-fpm或apache中使用swoole
 swoole中绝大部分的模块只能用于CLI命令行环境，只有同步阻塞的swoole_client可以用于php-fpm或apache环境。
 
+[TOC=2,3]
 ## **同步swoole_client**
 ~~~php
 $client = new swoole_client(SWOOLE_SOCK_TCP); //同步阻塞

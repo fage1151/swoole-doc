@@ -2,7 +2,7 @@
 
 ---
 
-[TOC]
+[TOC=2,3]
 
 在swoole中，一个swoole_server的相关属性可以通过
 ```php
