@@ -111,7 +111,6 @@ brew link --force openssl
 
 ## 安装Curl
 Mac系统原装的Curl默认使用了Secure Transport，导致通过option函数设置的证书全部无效。果断重新安装之。
-The Curl that comes with MacOS uses Secure Transport by default. That causes the invalid of all the certificates set by function 'option'. So reinstallation is a must.
 
 ```shell
 brew install curl --with-openssl && brew link curl --force
@@ -119,7 +118,6 @@ brew install curl --with-openssl && brew link curl --force
 
 ## 安装PHP
 PHP官网上下载某个版本的PHP（我选择的是5.6.22），使用如下命令编译安装。
-Download a version of PHP from PHP.net (for my case, it's 5.6.22). Compile source codes to install by using following commands:
 
 ```shell
 cd /path/to/php/
@@ -134,7 +132,6 @@ make && make install
 这里我仅列出两个需要特殊设置的选项`with-openssl`和`with-curl`。
 Here I filled up two specific options `with-openssl` and `with-curl`.
 安装完成后，执行如下命令：
-After installation, run following commands:
 
 ```shell
 sudo cp /usr/local/php/bin/php /usr/bin/
@@ -144,7 +141,6 @@ sudo cp /usr/local/php/bin/phpize /usr/bin/
 ```
 
 随后，设置php.ini
-Then, we can configure php.ini:
 
 ```shell
 sudo mkdir /etc/php
@@ -153,8 +149,8 @@ sudo cp php.ini.development /etc/php/php.ini
 
 # Swoole扩展安装
 [Swoole扩展下载地址 Download](https://github.com/swoole/swoole-src/releases)
+
 解压源码至任意目录，执行如下命令：
-Extact the codes to any directory and run following commands:
 
 ```shell
 cd swoole-src-swoole-1.7.6-stable/
@@ -165,16 +161,14 @@ sudo make install
 ```
 
 > swoole的./configure有很多额外参数，可以通过./configure --help命令查看,这里均选择默认项)
-> swoole's './configure' has got many optinal configurations. Check them out by using './configure --help'. 
-Here we are just going to leave them default.
+
 
 安装完成后，进入/etc/php目录下，打开php.ini文件，在其中加上如下一句：
-Having finished all that, go to the path '/etc/php' and edit php.ini. Add the following line to the file:
+
 ```bash
 extension=swoole.so
 ```
 随后在终端中输入命令`php -m`查看扩展安装情况。如果在列出的扩展中看到了swoole，则说明安装成功。
-All Done! Use `php -m` to list all the extensions and see if swoole is around.
 
 查看swoole版本
 
