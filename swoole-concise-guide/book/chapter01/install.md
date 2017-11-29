@@ -80,15 +80,12 @@ sudo cp php.ini-development /etc/php/php.ini
 
 另外，还需要将PHP的可执行目录添加到环境变量中。
 使用Vim/Sublime打开~/.bashrc，在末尾添加如下内容：
-Also, we need to add PHP's bin directory to environment variables.
-Open file '~/.bashrc' by Vim/Sublime. And add following contents to the end of the file:
 
 ```shell
 export PATH=/usr/local/php/bin:$PATH
 export PATH=/usr/local/php/sbin:$PATH
 ```
 保存后，终端输入命令：
-Having saved that, run following commands in Terminal:
 
 ```bash
 source ~/.bashrc
