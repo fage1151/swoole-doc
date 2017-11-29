@@ -1,20 +1,17 @@
 <!-- toc -->
-# 环境搭建 Environment Setup
+# 环境搭建
 
 ---
 
 [TOC]
 
-# Linux环境下安装 Setup for Linux
+# Linux环境下安装
 
 Linux操作系统通常都有自己的包管理软件（Ubuntu的apt-get，CentOS的yum，Mac OSX的HomeBrew等），因此一般情况下可以通过这些包管理软件直接安装PHP。但是这样安装的PHP不太适用于运行Swoole，因此本章将介绍如何通过源码编译安装。
-Linux has usually got its own package management tools (like apt-get for Ubuntu, yum for CentOS, HomeBrew for Mac OSX...). So for most of the cases, we can directly install php using those tools. But for Swoole, compiling the source codes to install is suggested.
 
-## 编译环境 Compiling Environment
+## 编译环境
 想要编译安装PHP首先需要安装对应的编译工具。
 Ubuntu上使用如下命令安装编译工具和依赖包：
-To successfully compile PHP, we have to get our compilers and other related tools ready.
-We can install compiling tools and dependencies by using commands:
 
 ```shell
 sudo apt-get install \
@@ -32,7 +29,7 @@ libpng12-dev \
 libfreetype6-dev \
 ```
 
-## PHP安装 PHP Installation
+## PHP安装
 
 [PHP下载地址 Download](http://php.net/)
 在这里挑选你想用的版本即可。下载源码包后，解压至本地任意目录（保证读写权限）。
@@ -101,11 +98,11 @@ source ~/.bashrc
 此时即可通过`php --version`查看php版本。
 Right now, you can check out the PHP version using `php --version`!
 
-# Mac环境下安装 Setup for Mac
+# Mac环境下安装
 Mac系统自带PHP，但是Mac上对于OpenSSL的相关功能做了一些限制，使用了一个`Secure Transport`来取代OpenSSL。因此仍然建议重新编译安装PHP环境。
 MacOS comes with a certain version of PHP. But OpenSSL for that version is restricted and got replaced by `Secure Transport`.  For that matter, reinstalling it in a code compiling way is still highly recommanded.
 
-## 安装OpenSSL OpenSSL Installation
+## 安装OpenSSL
 Mac原装的0.9.8版本的OpenSSL使用的时候会有些Warning，反正我看不惯……
 The OpenSSL that comes with MacOS, while using, will produce some warnings. And why is that? Kill me to know...
 安装命令：
@@ -120,7 +117,7 @@ After that, we will need to link the new OpenSSL into environment variables.
 brew link --force openssl
 ```
 
-## 安装Curl Curl Installation
+## 安装Curl
 Mac系统原装的Curl默认使用了Secure Transport，导致通过option函数设置的证书全部无效。果断重新安装之。
 The Curl that comes with MacOS uses Secure Transport by default. That causes the invalid of all the certificates set by function 'option'. So reinstallation is a must.
 
@@ -128,7 +125,7 @@ The Curl that comes with MacOS uses Secure Transport by default. That causes the
 brew install curl --with-openssl && brew link curl --force
 ```
 
-## 安装PHP PHP Installation
+## 安装PHP
 PHP官网上下载某个版本的PHP（我选择的是5.6.22），使用如下命令编译安装。
 Download a version of PHP from PHP.net (for my case, it's 5.6.22). Compile source codes to install by using following commands:
 
@@ -162,7 +159,7 @@ sudo mkdir /etc/php
 sudo cp php.ini.development /etc/php/php.ini
 ```
 
-# Swoole扩展安装 Swoole Installation
+# Swoole扩展安装
 [Swoole扩展下载地址 Download](https://github.com/swoole/swoole-src/releases)
 解压源码至任意目录，执行如下命令：
 Extact the codes to any directory and run following commands:
