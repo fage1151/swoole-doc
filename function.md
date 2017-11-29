@@ -1,6 +1,8 @@
 # 函数列表
-[TOC=2,3]
 swoole除了网络通信相关的函数外，还提供了一些获取系统信息的函数供PHP程序使用。
+
+[TOC=2,3]
+
 ## swoole_set_process_name 
 用于设置进程的名称。修改进程名称后，此函数接受一个字符串参数。 此函数与PHP5.5提供的cli_set_process_title功能是相同的。但swoole_set_process_name可用于PHP5.2之上的任意版本。swoole_set_process_name兼容性比cli_set_process_title要差，如果存在cli_set_process_title函数则优先使用cli_set_process_title。
 
