@@ -32,11 +32,11 @@ libfreetype6-dev \
 ## PHP安装
 
 [PHP下载地址 Download](http://php.net/)
+
 在这里挑选你想用的版本即可。下载源码包后，解压至本地任意目录（保证读写权限）。
 Download PHP of the version you want. Once done with that, extract it to any R/W directory.
 
 使用如下命令编译安装PHP：
-Use following commands to compile and install PHP:
 
 ```shell
 cd php-5.6.22/
