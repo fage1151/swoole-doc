@@ -73,10 +73,10 @@ $serv->task($data, -1, function (swoole_server $serv, $task_id, $data) {
 });
 ```
 
-#### **1.Task简介**
+#### 1.Task简介
 Swoole的业务逻辑部分是同步阻塞运行的，如果遇到一些耗时较大的操作，例如访问数据库、广播消息等，就会影响服务器的响应速度。因此Swoole提供了Task功能，将这些耗时操作放到另外的进程去处理，当前进程继续执行后面的逻辑。
 
-#### **2.开启Task功能**
+#### 2.开启Task功能
 开启Task功能只需要在swoole_server的配置项中添加[task_worker_num](server/set.md)一项即可，如下：
 ```php
 $serv->set(array(
@@ -85,7 +85,7 @@ $serv->set(array(
 ```
 即可开启task功能。此外，必须给swoole_server绑定两个回调函数：[onTask](server/02.swoole_server事件回调函数.md)和[onFinish](server/02.swoole_server事件回调函数.md)。这两个回调函数分别用于执行Task任务和处理Task任务的返回结果。
 
-#### **3.使用Task**
+#### 3.使用Task
 首先是发起一个Task，代码如下：
 ```php
 public function onReceive( swoole_server $serv, $fd, $from_id, $data ) {
@@ -130,7 +130,7 @@ public function onFinish($serv,$task_id, $data) {
 
 [点此查看完整示例](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/02/swoole_task_server.php)
 
-## **3.Task进阶：MySQL连接池**
+## 3.Task进阶：MySQL连接池
 上一章中我简单讲解了如何开启和使用Task功能。这一节，我将提供一个Task的高级用法。<br>
 
 在PHP中，访问MySQL数据库往往是性能提升的瓶颈。而MySQL连接池我想大家都不陌生，这是一个很好的提升数据库访问性能的方式。传统的MySQL连接池，是预先申请一定数量的连接，每一个新的请求都会占用其中一个连接，请求结束后再将连接放回池中，如果所有连接都被占用，新来的连接则会进入等待状态。<br>
@@ -196,7 +196,7 @@ public function onTask($serv,$task_id,$from_id, $data) {
 >可参考[swoole_framework中的代码](http://git.oschina.net/swoole/swoole_framework/blob/master/libs/Swoole/Async/MySQL.php)
 >redis连接池可参考[swoole_framework中的代码](http://git.oschina.net/swoole/swoole_framework/blob/master/libs/Swoole/Async/Redis.php)
 
-## **4.Task实战：yii中应用task**
+## 4.Task实战：yii中应用task
 在YII框架中结合了swoole 的task 做了异步处理。
 本例中 主要用到
 1、protected/commands/ServerCommand.php 用来做server。
@@ -222,4 +222,4 @@ class TestController extends Controller{
 ```
 
 有个task表是用来记录异步任务的。如果失败重试3次。sql在protected/data/sql.sql里。  
-[点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)<br>
+[点此查看完整客户端代码](https://github.com/LinkedDestiny/swoole-doc/blob/master/src/03/swoole_mysql_pool_client.php)
