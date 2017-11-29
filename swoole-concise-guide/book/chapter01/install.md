@@ -130,7 +130,7 @@ cd /path/to/php/
 make && make install
 ```
 这里我仅列出两个需要特殊设置的选项`with-openssl`和`with-curl`。
-Here I filled up two specific options `with-openssl` and `with-curl`.
+
 安装完成后，执行如下命令：
 
 ```shell
