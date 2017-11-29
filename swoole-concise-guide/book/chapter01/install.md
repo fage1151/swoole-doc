@@ -186,3 +186,9 @@ extension=swoole.so
 ```
 随后在终端中输入命令`php -m`查看扩展安装情况。如果在列出的扩展中看到了swoole，则说明安装成功。
 All Done! Use `php -m` to list all the extensions and see if swoole is around.
+
+查看swoole版本
+
+```
+php --ri swoole
+```
