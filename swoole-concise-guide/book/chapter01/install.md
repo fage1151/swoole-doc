@@ -77,7 +77,6 @@ sudo mkdir /etc/php
 sudo cp php.ini-development /etc/php/php.ini
 ```
 注意，以上PHP编译选项根据实际情况可调整。
-To be sure, any of these compiling options is adjustable according to your specific needs.
 
 另外，还需要将PHP的可执行目录添加到环境变量中。
 使用Vim/Sublime打开~/.bashrc，在末尾添加如下内容：
