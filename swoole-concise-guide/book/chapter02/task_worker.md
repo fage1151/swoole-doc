@@ -73,10 +73,10 @@ $serv->task($data, -1, function (swoole_server $serv, $task_id, $data) {
 });
 ```
 
-#### 1.Task简介
+### 1.Task简介
 Swoole的业务逻辑部分是同步阻塞运行的，如果遇到一些耗时较大的操作，例如访问数据库、广播消息等，就会影响服务器的响应速度。因此Swoole提供了Task功能，将这些耗时操作放到另外的进程去处理，当前进程继续执行后面的逻辑。
 
-#### 2.开启Task功能
+### 2.开启Task功能
 开启Task功能只需要在swoole_server的配置项中添加[task_worker_num](server/set.md)一项即可，如下：
 ```php
 $serv->set(array(
@@ -85,7 +85,7 @@ $serv->set(array(
 ```
 即可开启task功能。此外，必须给swoole_server绑定两个回调函数：[onTask](server/02.swoole_server事件回调函数.md)和[onFinish](server/02.swoole_server事件回调函数.md)。这两个回调函数分别用于执行Task任务和处理Task任务的返回结果。
 
-#### 3.使用Task
+### 3.使用Task
 首先是发起一个Task，代码如下：
 ```php
 public function onReceive( swoole_server $serv, $fd, $from_id, $data ) {
