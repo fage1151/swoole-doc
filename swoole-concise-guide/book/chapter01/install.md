@@ -104,7 +104,7 @@ Mac原装的0.9.8版本的OpenSSL使用的时候会有些Warning，反正我看�
 brew install openssl
 ```
 安装之后，还需要链接新的openssl到环境变量中。
-After that, we will need to link the new OpenSSL into environment variables.
+
 ```shell
 brew link --force openssl
 ```
