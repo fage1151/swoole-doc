@@ -3,9 +3,7 @@
 ---
 
 本章将详细介绍如何搭建Swoole的开发环境，包括PHP的安装、Swoole的安装、相关扩展的安装等等。
-This Chapter will introduce how to set up the development environment of Swoole, including the installation of PHP, Swoole extension and other related extensions.
 通过学习本章，你可以学到如何快速搭建一套完整的Swoole开发环境。
-Going through this chapter, we can learn how to quick set up a complete Swoole development environment.
 
 ## 相关软件 Essentials
 
