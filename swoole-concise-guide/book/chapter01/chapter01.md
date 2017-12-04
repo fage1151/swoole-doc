@@ -5,7 +5,7 @@
 本章将详细介绍如何搭建Swoole的开发环境，包括PHP的安装、Swoole的安装、相关扩展的安装等等。
 通过学习本章，你可以学到如何快速搭建一套完整的Swoole开发环境。
 
-## 相关软件 Essentials
+## 相关软件
 
 | 类别 Type | 名称 Name | 版本 Version |
 | --- | --- | --- |
@@ -17,7 +17,7 @@
 | 数据库 Database | MySQL | 5.7.12 |
 | 数据库 Database | Redis | 3.0.7 |
 
-## 相关框架 Related Frameworks
+## 相关框架
 | 类别 Type | 名称 Name | 版本 Version |
 | --- | --- | --- |
 | MVC | ZPHP | Master 分支 Branch |
