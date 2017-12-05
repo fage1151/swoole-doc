@@ -1,4 +1,4 @@
-# 环境搭建 Environment Setup
+# 环境搭建
 
 ---
 
