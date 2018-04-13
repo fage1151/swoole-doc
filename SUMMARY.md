@@ -60,6 +60,7 @@
         * [getDefer](getDefer.md)
         * [setDefer](setDefer.md)
         * [recv](recv.md)
+        * [Coroutine::gethostbyname](Coroutinegethostbyname.md)
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
