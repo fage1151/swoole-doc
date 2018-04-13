@@ -7,7 +7,7 @@
 function Coroutine::gethostbyname(string $domain, int $family = AF_INET): string | bool
 
 ~~~
-* $domain域名，如www.baidu.com
+* $domain域名，如`www.baidu.com`
 * $family默认为AF_INET表示返回IPv4地址，使用AF_INET6时返回IPv6地址
 成功返回域名对应的IP地址，失败返回false
 示例
