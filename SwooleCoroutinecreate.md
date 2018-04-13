@@ -8,6 +8,25 @@ function Swoole\Coroutine::create(callable $function);
 * 创建成功返回true，失败返回false
 * 系统能创建的协程总数量受限于server->max_coroutine设置。
 
+在2.1.0或更高版本中如果开启了`swoole.use_shortname`，可以直接使用go关键词创建新的协程。
+
+~~~
+go(function () {
+    $db = new Co\MySQL();
+    $server = array(
+        'host' => '127.0.0.1',
+        'user' => 'root',
+        'password' => 'root',
+        'database' => 'test',
+    );
+
+    $db->connect($server);
+
+    $result = $db->query('SELECT * FROM userinfo WHERE id = 3');
+    var_dump($result);
+});
+~~~
+
 **使用示例**
 
 ~~~php
