@@ -64,6 +64,7 @@
         * [setDefer](setDefer.md)
         * [recv](recv.md)
     * [Swoole\Coroutine\Socket](SwooleCoroutineSocket.md)
+    * [Swoole\Coroutine\Channel](SwooleCoroutineChannel.md)
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
