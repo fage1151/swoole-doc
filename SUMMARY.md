@@ -68,6 +68,7 @@
         * [Coroutine::fget](Coroutinefget.md)
         * [Coroutine::fwrite](Coroutinefwrite.md)
         * [Coroutine::readFIle](CoroutinereadFIle.md)
+        * [Coroutine::writeFIle](CoroutinewriteFIle.md)
     * [Swoole\Coroutine\Socket](SwooleCoroutineSocket.md)
     * [Swoole\Coroutine\Channel](SwooleCoroutineChannel.md)
 * [7 swoole_process](module/process.md)
