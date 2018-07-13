@@ -56,7 +56,7 @@
         * [Swoole\Coroutine::resume](SwooleCoroutineresume.md)
         * [Swoole\Coroutine::suspend](SwooleCoroutinesuspend.md)
         * [Swoole\Coroutine::sleep](coroutine/sleep.md)
-        * [Coroutine::gethostbyname](Coroutinegethostbyname.md)
+        * [Coroutine::getaddrinfo](Coroutinegeaddrinfo.md)
         * [Coroutine::gethostbyname](Coroutinegethostbyname.md)
         * [swoole_async_dns_lookup_coro](swoole_async_dns_lookup_coro.md)
         * [Swoole\Coroutine::getuid](SwooleCoroutinegetuid.md)
