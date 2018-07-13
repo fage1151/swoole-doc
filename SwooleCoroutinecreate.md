@@ -1,4 +1,4 @@
-# Coroutine::create [编辑本页]
+# Coroutine::create
 创建一个新的协程，并立即执行。
 
 ~~~
