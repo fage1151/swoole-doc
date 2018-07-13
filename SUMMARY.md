@@ -51,6 +51,8 @@
     * [Swoole\Coroutine\Redis](coroutine/redis_coroutine.md)
     * [Coroutine\PostgreSQL](CoroutinePostgreSQL.md)
     * [Swoole\Coroutine\Client](tcp_coroutine.md)
+    * [Swoole\Coroutine\Socket](SwooleCoroutineSocket.md)
+    * [Swoole\Coroutine\Channel](SwooleCoroutineChannel.md)
     * [Coroutine](CoroutineUtil.md)
         * [Swoole\Coroutine::create](SwooleCoroutinecreate.md)
         * [Swoole\Coroutine::resume](SwooleCoroutineresume.md)
@@ -70,8 +72,7 @@
         * [Coroutine::readFIle](CoroutinereadFIle.md)
         * [Coroutine::writeFIle](CoroutinewriteFIle.md)
         * [Coroutine::exec](Coroutineexec.md)
-    * [Swoole\Coroutine\Socket](SwooleCoroutineSocket.md)
-    * [Swoole\Coroutine\Channel](SwooleCoroutineChannel.md)
+
 * [7 swoole_process](module/process.md)
     * [process::construct](process/construct.md)
     * [process::start](process/start.md)
