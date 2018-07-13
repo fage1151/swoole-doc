@@ -51,7 +51,7 @@
     * [Swoole\Coroutine\Redis](coroutine/redis_coroutine.md)
     * [Coroutine\PostgreSQL](CoroutinePostgreSQL.md)
     * [Swoole\Coroutine\Client](tcp_coroutine.md)
-    * [Coroutine\Util](CoroutineUtil.md)
+    * [Coroutine](CoroutineUtil.md)
         * [Swoole\Coroutine::create](SwooleCoroutinecreate.md)
         * [Swoole\Coroutine::resume](SwooleCoroutineresume.md)
         * [Swoole\Coroutine::suspend](SwooleCoroutinesuspend.md)
