@@ -129,3 +129,5 @@
 * [swoole-worker手册](swoole-worker/swoole-worker.md)
 * [swoole相关开源项目](module/relate.md)
 * [写在后面的话](speak.md)
+* [版本更新记录](版本更新记录.md)
+    * [4.0](版本更新记录/4.0.md)
